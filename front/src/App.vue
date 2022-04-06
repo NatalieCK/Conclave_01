@@ -2,11 +2,12 @@
 
 import Avatar from "./components/Avatar.vue";
 import LoadingAnimation from "./components/LoadingAnimation.vue";
+import Utku from "./components/utku.vue";
 
 </script>
 
 <template>
-
+<Utku />
 <router-link to="/">HOME_LINK</router-link>
 <br>
 <router-link to="/about">CONCLAVEINTRO_LINK</router-link>
