@@ -2,10 +2,13 @@
 
 import Avatar from "./components/Avatar.vue";
 import LoadingAnimation from "./components/LoadingAnimation.vue";
+import NatsComponent from "./components/nats_component.vue"
 
 </script>
 
 <template>
+
+<NatsComponent /> 
 
 <router-link to="/">HOME_LINK</router-link>
 <br>
