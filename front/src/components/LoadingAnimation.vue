@@ -1,16 +1,16 @@
 <template>
 
-  <div class="dotBox">
+  <!-- <div class="dotBox">
     <div class="dot-flashing"></div>
-  </div>
+  </div> -->
 
   <div class="dotBox">
     <div class="dot-windmill"></div>
   </div>
 
-  <div class="dotBox">
+  <!-- <div class="dotBox">
     <div class="dot-typing"></div>
-  </div>
+  </div> -->
 
 </template>
 
