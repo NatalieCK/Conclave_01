@@ -1,18 +1,38 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
-    userID: {
-        type: String, 
-        required: true},
-    postLikes: {
-        type: String,
-        required: true},
-    comments: {
-        type: String,
-        required: true},
-    postContent: {
-        type: String,
-        required: true}
+  P_userID: {
+    type: String,
+    required: true,
+  },
+  P_fname: {
+    type: String,
+    required: true,
+  },
+  P_lname: {
+    type: String,
+    required: true,
+  },
+  P_initial: {
+    type: String,
+    required: true,
+  },
+  P_status: {
+    type: String,
+    required: true,
+  },
+  P_content: {
+    type: String,
+    required: true,
+  },
+  P_likes: {
+    type: String,
+    required: true,
+  },
+  P_comments: {
+    type: String,
+    required: true,
+  }
 });
 
 // = new mongoose.Schema({fname:String,lname:String})
