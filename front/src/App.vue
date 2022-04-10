@@ -11,7 +11,7 @@ import Utku from "./components/utku.vue";
 </script>
 
 <template>
-
+<div>
 
 <NatsComponent /> 
 
@@ -24,7 +24,7 @@ import Utku from "./components/utku.vue";
 <Avatar />
 <router-view></router-view>
 <LoadingAnimation />
-
+</div>
 </template>
 
 <style>
