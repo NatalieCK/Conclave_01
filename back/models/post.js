@@ -26,11 +26,11 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
   P_likes: {
-    type: String,
+    type: Number,
     required: true,
   },
   P_comments: {
-    type: String,
+    type: Number,
     required: true,
   }
 });
