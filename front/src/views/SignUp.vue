@@ -1,17 +1,13 @@
 <script setup>
 import SignInHeader from "../components/SignInHeader.vue";
 
-
-
 </script>
 
 <template>
 
-<sign-in-header />
+<SignInHeader />
 
 <h1>Sign Up</h1>
-
-
 
 </template>
 
