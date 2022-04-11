@@ -8,6 +8,11 @@
         <label for=""></label>
         <input type="text" name="WritePost" placeholder="Write a post" class="input" required>
 
+            <div class="svg_xp">
+            <svg xmlns="http://www.w3.org/2000/svg" height="21px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z"/></svg>
+            </div>
+
+
       </fieldset>
 
       </form>
@@ -15,6 +20,7 @@
 </div>
 </template>
 <style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
 .fieldset {
     border: solid white 1px;
     border-right: none;
@@ -44,4 +50,7 @@ text-align: center;
 
 }
 
+.svg_xp {
+    padding-left: 5px;
+}
 </style>
