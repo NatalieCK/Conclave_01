@@ -6,6 +6,7 @@
 <Welcome />
 </div>
 
+<SignUp />
 
 
 <router-view></router-view>
@@ -29,6 +30,7 @@
 
 <script>
 export default {
+  components: { ConclaveIntro },
   data() {
     return {
       modal: false,
@@ -39,4 +41,7 @@ export default {
 
 <script setup>
 import Welcome from './components/Welcome.vue';
+import ConclaveIntro from './views/ConclaveIntro.vue';
+import SignUp from './views/SignUp.vue';
+
 </script>
