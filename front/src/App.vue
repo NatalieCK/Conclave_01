@@ -6,8 +6,6 @@
 <Welcome />
 </div>
 
-<SignUp />
-
 
 <router-view></router-view>
 

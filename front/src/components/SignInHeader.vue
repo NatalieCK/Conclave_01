@@ -3,7 +3,7 @@
 
 <div class="header_flex">
 <img src="#" alt="LOGO">
-<h1>Conference Rooms</h1>
+<h3>Conference Rooms</h3>
 </div>
 
 </template>
