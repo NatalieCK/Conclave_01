@@ -29,7 +29,7 @@ const CommentSchema = new mongoose.Schema({
     required: true,
   },
   C_likes: {
-    type: String,
+    type: Number,
     required: true,
   }
 });

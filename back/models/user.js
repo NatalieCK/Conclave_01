@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   U_logIn: {
-    type: String,
+    type: Boolean,
     required: true,
   }
 });

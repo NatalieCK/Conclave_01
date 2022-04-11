@@ -1,7 +1,7 @@
 
 
 <template>
-
+<div>
 <div :class="{ hidden: modal }" >
 <Welcome />
 </div>
@@ -10,7 +10,7 @@
 
 <router-view></router-view>
 
-
+</div>
 </template>
 
 
