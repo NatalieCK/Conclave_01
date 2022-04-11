@@ -9,3 +9,10 @@ hello world from joeio
 7/4 TOM - OUTCOME - Natalie offered to rebuild the repository instead so I stepped back from that. INTENTION - to map out schemas for our project and revise front/back communication.
 
 8/4 TOM - OUTCOME I collaborated on schemas for User, Post, and Comments. After revising I locally built a backend utilizing these schemas and a frontend to test their interaction with Mongo database. There were problems. INTENTION - to resolve the problems existing in the front/back end code, merge the results into the group repository and begin utilizing this in building components for the project.
+
+
+
+
+
+
+11/4 NAT - Collaboratively troubleshooting github/ folder issues and tidied up the folder structure via videocall. Troubleshooted & resolved github issues with tutor
