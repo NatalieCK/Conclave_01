@@ -2,6 +2,9 @@
 
 <template>
 <div>
+
+<SignUp />
+
 <div :class="{ hidden: modal }" >
 <Welcome />
 </div>
