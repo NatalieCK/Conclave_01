@@ -22,3 +22,4 @@ hello world from joeio
 
 12/4 TOM - OUTCOME The team agreed with my changes, so I used the tools to delete the existing data in the database, and then we updated the schemas on the repository. We sorted out app.vue and agreed upon a state which we would leave it each time we merged our branches. I was unsure of how to handle the 'Current User' data and asked Utku if there was a global variable in Vue - he looked into it and returned with the 'provide/inject' option. I rebuilt and tested the frontend tools/templates and posted them for the group. In doing so I realized there were some tweaks we still had to make to the schemas (data definitions). INTENTION - to update the schemas on the repository, recreate a bunch of users and posts for the database, investigate 'provide/inject', and get the construction of the PostList component underway.
 
+12/4 NAT - 
