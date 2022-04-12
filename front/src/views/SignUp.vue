@@ -23,7 +23,9 @@ import ReturnID from "./ReturnID.vue";
 
   <span class="signupbtn" @click="addUser">Sign Up</span>
 
-  <log-in />
+  <p>
+    Your user ID as follows: {{ User_Id }}
+  </p>
 
   </div>
 </template>
@@ -88,6 +90,7 @@ export default {
       this.fetchAPI();
     },
   },
+   inject: ["User_Id"],
   created() {
   
   },
