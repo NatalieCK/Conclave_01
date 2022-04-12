@@ -28,32 +28,7 @@ export default {
       const response = await fetch("http://localhost:4000/posts/");
       const fetchedData = await response.json();
       this.postsData = fetchedData;
-    },
-    async addPost() {
-      const response = await fetch("http://localhost:4000/posts/addpost", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.inputPostData),
-      });
-      const fetchedData = await response.json();
-      this.fetchAPI();
-    },
-    async delPost(postID) {
-      const fetchURL = "http://localhost:4000/posts/delete/" + postID;
-      const response = await fetch(fetchURL, { method: "DELETE" });
-      const fetchedData = await response.json();
-      this.fetchAPI();
-    },
-    async updatePost(postID) {
-      const fetchURL = "http://localhost:4000/posts/update/" + postID;
-      const response = await fetch(fetchURL, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.inputPostData),
-      });
-      const fetchedData = await response.json();
-      this.fetchAPI();
-    },
+    }
   },
   created() {
     this.fetchAPI();
