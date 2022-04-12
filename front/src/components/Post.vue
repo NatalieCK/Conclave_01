@@ -1,0 +1,165 @@
+<template>
+  <div class="postBox">
+    <div class="postUser">
+
+      <div v-if="postProp.P_status == 'Speaker'" class="avatar_speaker">
+        <div class="avatar_inner">{{ postProp.P_initial }}</div>
+      </div>
+
+<div v-else class="avatar_attendee">
+        <div class="avatar_inner">{{ postProp.P_initial }}</div>
+      </div>
+
+      <div class="userInfo">
+        <h1>{{ postProp.P_fname }} {{ postProp.P_lname }}</h1>
+        <h2>{{ postProp.P_status }}</h2>
+      </div>
+    </div>
+
+    <div class="postText">
+      <h3>{{ postProp.P_content }}</h3>
+    </div>
+
+    <div class="iconNumbers">
+      <div v-if="postProp.P_likes" class="likeNumbers">
+        <img class="likeIcon" src="ICONS/thumb_up_white_24dp.svg" alt="likes" />
+        <h4>{{ postProp.P_likes }} Like</h4>
+        <h4 v-if="postProp.P_likes > 1">s</h4>
+      </div>
+
+      <div v-if="postProp.P_likes" class="spaceNumbers"></div>
+
+      <div v-if="postProp.P_comments" class="commentNumbers">
+        <img
+          class="commentIcon"
+          src="ICONS/question_answer_white_24dp.svg"
+          alt="likes"
+        />
+        <h4>{{ postProp.P_comments }} Comment</h4>
+        <h4 v-if="postProp.P_comments > 1">s</h4>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.postBox {
+  position: relative;
+  top: 170px;
+  margin: 3vw;
+  border: solid 5px #63b798;
+  border-radius: 3px;
+}
+
+.postUser {
+  display: flex;
+  justify-content: start;
+  margin: 3vw;
+}
+
+.avatar_speaker {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin: 0;
+  background-color: #63b798;
+}
+
+.avatar_attendee {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin: 0;
+  background-color: #9369ce;
+}
+
+.avatar_inner {
+  font-family: "Inter", sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2vw;
+}
+
+.postText {
+  margin: 2vw 2vw 3vw 4vw;
+}
+
+.iconNumbers {
+  display: flex;
+  justify-content: start;
+  margin: 0vw 4vw 4vw;
+}
+
+.likeNumbers {
+  display: flex;
+  justify-content: start;
+}
+.spaceNumbers {
+  width: 4vw;
+}
+.commentNumbers {
+  display: flex;
+  justify-content: start;
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+h4 {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  /* margin-right: 5vw; */
+}
+
+.likeIcon {
+  height: 16px;
+  margin-right: 1vw;
+}
+
+.commentIcon {
+  height: 17.5px;
+  margin-right: 1vw;
+}
+</style>
+
+
+
+<script setup>
+import P_Avatar from "./P_Avatar.vue";
+
+defineProps({
+  postProp: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
