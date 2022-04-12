@@ -5,6 +5,8 @@
 
 <template>
 
+<div class="welcome_page">
+
 <p>(welcome page)</p>
 
 <div class="logo">
@@ -17,18 +19,28 @@
 
 <div class="welcome_options">
 
-    <div class="welcome_btns"><router-link to="/Login.vue">Log In</router-link></div>
+    <div class="welcome_btns" @click="$emit('closemodal')"><router-link to="/login">Log In</router-link></div>
 
     <p>or</p>
  
-    <div class="welcome_btns"><router-link to="/SignUp.vue">Sign Up</router-link></div>
+    <div class="welcome_btns" @click="$emit('closemodal')" ><router-link to="/signup">Sign Up</router-link></div>
 
 </div>
-
+</div>
 
 </template>
 
 <style scoped>
+
+.welcome_page {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    height: 100vw;
+    width: 100vw;
+    background-color: #111127 ;
+    z-index: 10;
+}
 
 
 .logo {
@@ -47,7 +59,7 @@
 
 .welcome_options {
     width: 60%;
-    margin: 40px auto;
+    margin: 40px 20% 40px 20%;
     display: flex;
     font-family: 'Inter';
     justify-content: space-around;

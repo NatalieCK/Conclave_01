@@ -6,7 +6,7 @@
     <LogIn  /> -->
 
     <div :class="{ hidden: modal }">
-      <Welcome />
+      <Welcome @closemodal="modal=true" />
     </div>
 
     <router-view @userDetailsCreated="myDetails"></router-view>
@@ -27,26 +27,18 @@ export default {
   data() {
     return {
       modal: false,
-      localUser: {
-        U_fname: "placeholder",
-        U_lname: "",
-        U_initial: "",
-        U_email: "",
-        U_password: "",
-        U_status: "",
-        U_logIn: false,
-      },
+      localUserId: "",
     };
   },
   methods: {
     myDetails(input) {
-      this.localUser = input;
+      this.localUserId = input;
     }
     
   },
   provide() {
     return {
-      User_Object: computed(() => this.localUser)
+      User_Id: computed(() => this.localUserId)
     }
   }
 };

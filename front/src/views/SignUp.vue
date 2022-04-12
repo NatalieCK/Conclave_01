@@ -1,5 +1,6 @@
 <script setup>
 import SignInHeader from "../components/SignInHeader.vue";
+import LogIn from './LogIn.vue';
 import ReturnID from "./ReturnID.vue";
 </script>
 
@@ -22,6 +23,8 @@ import ReturnID from "./ReturnID.vue";
 
   <span class="signupbtn" @click="addUser">Sign Up</span>
 
+  <log-in />
+
   </div>
 </template>
 
@@ -37,6 +40,7 @@ import ReturnID from "./ReturnID.vue";
 
 <script>
 export default {
+  components: { LogIn },
   data() {
     return {
       usersData: [],
@@ -64,7 +68,7 @@ export default {
         body: JSON.stringify(this.inputUserData),
       });
       const fetchedData = await response.json();
-    this.$emit("userDetailsCreated", fetchedData),
+    this.$emit("userDetailsCreated", fetchedData._id),
     console.log(fetchedData)
        },
     async delUser(userID) {
