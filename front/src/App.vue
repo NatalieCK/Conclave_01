@@ -28,7 +28,7 @@ export default {
     return {
       modal: false,
       localUserId: "",
-      modal: true,
+      
     };
   },
   methods: {
