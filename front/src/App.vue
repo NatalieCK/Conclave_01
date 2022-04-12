@@ -8,7 +8,9 @@
     </div>
 
     <router-view @userDetailsCreated="myDetails"></router-view>
+
 </div>
+
 
 </template>
 
