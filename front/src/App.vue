@@ -1,9 +1,6 @@
 
 
 <template>
-  <div>
-    <!-- <SignUp @userDetailsCreated="myDetails" />
-    <LogIn  /> -->
 
     <div :class="{ hidden: modal }">
       <Welcome @closemodal="modal=true" />
@@ -28,6 +25,7 @@ export default {
     return {
       modal: false,
       localUserId: "",
+      modal: true,
     };
   },
   methods: {

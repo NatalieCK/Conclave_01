@@ -1,10 +1,10 @@
 <script setup>
-
+import FullNav from '../components/FullNav.vue';
 </script>
 
 <template>
 
-<h1>Full Article</h1>
+<FullNav />
 
 </template>
 
