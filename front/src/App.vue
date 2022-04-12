@@ -1,45 +1,50 @@
 
 
 <template>
-<div>
-<div :class="{ hidden: modal }" >
-<!-- <Welcome /> -->
-</div>
 
+    <div :class="{ hidden: modal }">
+      <Welcome @closemodal="modal=true" />
+    </div>
 
-<router-view></router-view>
+    <router-view @userDetailsCreated="myDetails"></router-view>
+  </div>
 
-</div>
 </template>
 
-
-
 <style>
-
-@import './assets/base.css/';
+@import "./assets/base.css/";
 
 .hidden {
   display: none;
 }
-
-
-
 </style>
 
 <script>
 export default {
-  components: { ConclaveIntro },
   data() {
     return {
+      modal: false,
+      localUserId: "",
       modal: true,
     };
+  },
+  methods: {
+    myDetails(input) {
+      this.localUserId = input;
+    }
+    
+  },
+  provide() {
+    return {
+      User_Id: computed(() => this.localUserId)
+    }
   }
 };
 </script>
 
 <script setup>
-import Welcome from './components/Welcome.vue';
-import ConclaveIntro from './views/ConclaveIntro.vue';
-import SignUp from './views/SignUp.vue';
-
+import Welcome from "./components/Welcome.vue";
+import LogIn from "./views/LogIn.vue";
+import SignUp from "./views/SignUp.vue";
+import { computed } from 'vue';
 </script>

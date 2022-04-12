@@ -72,3 +72,21 @@ export default {
        }, 
 }
  </script> 
+
+
+PULLING PROVIDE!
+
+<script>
+export default {
+
+  inject: ['globalUser'],
+
+};
+</script>
+
+<template>
+  
+<p> userId is pulled like this>>>  {{ globalUser }} </p>
+<p> user fname is pulled like this>>>  {{ globalUser.U_fname }} </p>
+
+</template>
