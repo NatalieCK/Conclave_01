@@ -3,7 +3,7 @@
 <template>
 <div>
 <div :class="{ hidden: modal }" >
-<Welcome />
+<!-- <Welcome /> -->
 </div>
 
 
