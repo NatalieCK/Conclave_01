@@ -30,6 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+          z-index: -1;
 
 }
 
@@ -39,7 +40,7 @@
     height: 34px;
     border-radius: 22.5px;
     background-color: transparent;
-    opacity: 1;
+
 
 }
 ::placeholder { 
