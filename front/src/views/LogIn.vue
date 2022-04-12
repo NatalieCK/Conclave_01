@@ -11,6 +11,10 @@
 <p>Local Variable loaded with injected value, it CAN reach sub properties via localUserObj.U_fname {{localUserObj}}</p>
 <p>working sample fname: {{localUserObj.U_fname}} </p>
 
+<div class="login_btn">
+    
+</div>
+
 </template>
 
 <style>
