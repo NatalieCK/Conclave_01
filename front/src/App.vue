@@ -1,13 +1,14 @@
 
 
 <template>
+<div>
 
     <div :class="{ hidden: modal }">
       <Welcome @closemodal="modal=true" />
     </div>
 
     <router-view @userDetailsCreated="myDetails"></router-view>
-  </div>
+</div>
 
 </template>
 
