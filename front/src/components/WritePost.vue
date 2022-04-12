@@ -58,6 +58,7 @@ export default {
         P_content: "",
         P_likes: 0,
         P_comments: 0,
+        P_postComments: [],
       };
     },
     fillPostData(){
