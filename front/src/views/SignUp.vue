@@ -64,7 +64,8 @@ export default {
         body: JSON.stringify(this.inputUserData),
       });
       const fetchedData = await response.json();
-    this.$emit("userDetailsCreated", fetchedData._id)
+    this.$emit("userDetailsCreated", fetchedData),
+    console.log(fetchedData)
        },
     async delUser(userID) {
       const fetchURL = "http://localhost:4000/users/delete/" + userID;
