@@ -2,8 +2,8 @@
 
 <template>
   <div>
-    <SignUp @userDetailsCreated="myDetails" />
-    <LogIn  />
+    <!-- <SignUp @userDetailsCreated="myDetails" />
+    <LogIn  /> -->
 
     <div :class="{ hidden: modal }">
       <Welcome />
