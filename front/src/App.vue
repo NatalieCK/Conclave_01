@@ -31,7 +31,7 @@ export default {
   components: { ConclaveIntro },
   data() {
     return {
-      modal: false,
+      modal: true,
     };
   }
 };

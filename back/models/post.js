@@ -32,6 +32,10 @@ const PostSchema = new mongoose.Schema({
   P_comments: {
     type: Number,
     required: true,
+  },
+  P_postComments: {
+    type: Array,
+    required: true,
   }
 });
 
