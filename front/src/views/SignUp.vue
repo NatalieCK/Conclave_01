@@ -1,12 +1,11 @@
 <script setup>
 import SignInHeader from "../components/SignInHeader.vue";
-import ReturnID from "../components/ReturnID.vue";
+import ReturnID from "./ReturnID.vue";
 </script>
 
 <template>
+<div>
   <SignInHeader />
-
-
 
   <h1>Sign Up</h1>
 
@@ -21,13 +20,18 @@ import ReturnID from "../components/ReturnID.vue";
   />
   <input type="text" v-model="inputUserData.U_status" placeholder="Status" />
 
-  <span @click="addUser">Sign Up</span>
+  <span class="signupbtn" @click="addUser">Sign Up</span>
 
-  <returnID />
-  <!-- need v-for here to return user id -->
+  </div>
 </template>
 
 <style>
+
+.signupbtn {
+  background-color: white;
+  color: navy;
+  padding: 10px;
+}
 </style>
 
 
@@ -43,7 +47,7 @@ export default {
         U_email: "",
         U_password: "",
         U_status: "",
-        U_logIn: "",
+        U_logIn: false,
       },
     };
   },
@@ -60,8 +64,8 @@ export default {
         body: JSON.stringify(this.inputUserData),
       });
       const fetchedData = await response.json();
-      this.fetchAPI();
-    },
+    this.$emit("userDetailsCreated", fetchedData._id)
+       },
     async delUser(userID) {
       const fetchURL = "http://localhost:4000/users/delete/" + userID;
       const response = await fetch(fetchURL, { method: "DELETE" });
@@ -80,7 +84,8 @@ export default {
     },
   },
   created() {
-    this.fetchAPI();
+  
   },
+  emits:["userDetailsCreated"]
 };
 </script>
