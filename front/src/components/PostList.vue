@@ -1,4 +1,6 @@
 <template>
+<WritePost @PostListTrigger="fetchAPI" />
+
   <Post
     v-for="post in postsData"
     :key="post._id"
@@ -38,4 +40,5 @@ export default {
 
 <script setup>
 import Post from "./Post.vue";
+import WritePost from "./WritePost.vue";
 </script>
