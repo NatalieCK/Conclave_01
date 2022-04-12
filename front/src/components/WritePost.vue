@@ -1,3 +1,4 @@
+
 <template>
   <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1>
   <textarea v-model="postData.P_content" rows="4" cols="40" placeholder="Post" />
@@ -82,3 +83,4 @@ export default {
   emits: ["PostListTrigger"]
 };
 </script>
+
