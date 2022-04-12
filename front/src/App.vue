@@ -11,6 +11,7 @@
 
     <router-view @userDetailsCreated="myDetails"></router-view>
   </div>
+
 </template>
 
 <style>
@@ -27,7 +28,7 @@ export default {
     return {
       modal: false,
       localUser: {
-        U_fname: "",
+        U_fname: "placeholder",
         U_lname: "",
         U_initial: "",
         U_email: "",
@@ -44,10 +45,10 @@ export default {
     
   },
   provide() {
-      return {
-        User_Object: computed(() => this.localUser)
-      };
+    return {
+      User_Object: computed(() => this.localUser)
     }
+  }
 };
 </script>
 
