@@ -50,6 +50,7 @@
     border-bottom-right-radius: 33px;
     font-family: 'inter';
     font-size: 16px;
+    font-weight: 800;
 }
 
 .about_button{
