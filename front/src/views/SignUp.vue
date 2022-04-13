@@ -21,14 +21,24 @@ import ReturnID from "./ReturnID.vue";
   />
   <input type="text" v-model="inputUserData.U_status" placeholder="Status" />
 
-  <span class="signupbtn" @click="addUser">Sign Up</span>
+  <span class="signupbtn"   @click="addUser" >Sign Up</span>
 
-  <log-in />
+<div :class="{ idhidden : IdDisplay }">
+ <p>your user id is as follows:</p> 
+  <p >
+     {{ User_Id }}
+  </p>
+   <p>click HERE to login</p>
+ </div>
 
   </div>
 </template>
 
 <style>
+
+.idhidden {
+  display: none;
+}
 
 .signupbtn {
   background-color: white;
@@ -43,6 +53,8 @@ export default {
   components: { LogIn },
   data() {
     return {
+      // localUserId:"",
+      IdDisplay: true,
       usersData: [],
       inputUserData: {
         U_fname: "",
@@ -69,7 +81,8 @@ export default {
       });
       const fetchedData = await response.json();
     this.$emit("userDetailsCreated", fetchedData._id),
-    console.log(fetchedData)
+    console.log(fetchedData),
+    this.IdDisplay = false
        },
     async delUser(userID) {
       const fetchURL = "http://localhost:4000/users/delete/" + userID;
@@ -88,8 +101,9 @@ export default {
       this.fetchAPI();
     },
   },
+   inject: ["User_Id"],
   created() {
-  
+  // this.localUserId = this.User_Id;
   },
   emits:["userDetailsCreated"]
 };
