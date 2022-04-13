@@ -16,14 +16,14 @@ import SignInHeader from "../components/SignInHeader.vue";
 </div>
 
 <div class="login_input">
-  <input type="text" name="userid"  placeholder="user id" value="User_Id" />
+  <input type="text" name="userid"  placeholder="user id" value="localUserObj._id" />
   <input type="text" name="userpass"  placeholder="password" />
 </div>
 <br>
 <p>
-    Injected User_Id  {{ User_Id }}
+    Injected User_Id  {{ localUserObj._id }}
   </p>
-  <p>Injected User Password {{}}</p>
+  <p>Injected User Password {{localUserObj.U_password}}</p>
 
   <br>
 
@@ -62,31 +62,24 @@ import SignInHeader from "../components/SignInHeader.vue";
 export default {
   data() {
     return {
-       userData: {
+      //  userData: {
     
-      },
-        localUserId:{}
+      // }
+        localUserObj:{}
     };
   },
-  methods: {
-    async getUser(userID) {
-      const response = await fetch("http://localhost:4000/users/get/" + userID);
-      const fetchedData = await response.json();
-      this.userData = fetchedData;
+  // methods: {
+  //   async getUser(userID) {
+  //     const response = await fetch("http://localhost:4000/users/get/" + userID);
+  //     const fetchedData = await response.json();
+  //     this.userData = fetchedData;
+  //   },
+  // },
+    created(){
+      this.localUserObj = this.User_Object;
     },
-  },
-    // created(){
-    //   this.localUserId = this.User_Id;
-    // },
-  created() {
-    this.localUserId = this.User_Id;
-    const currentUserID = localUserId;
-    console.log("example"+currentUserID);
-   console.log(this.localUserId);
-    this.getUser(currentUserID);
-    
-  },
 
-  inject: ["User_Id"],
+  inject: ["User_Object"],
+  
 };
 </script>

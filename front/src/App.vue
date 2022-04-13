@@ -27,18 +27,26 @@ export default {
   data() {
     return {
       modal: false,
-      localUserId: "",
+        localUser: {
+        U_fname: "",
+        U_lname: "",
+        U_initial: "",
+        U_email: "",
+        U_password: "",
+        U_status: "",
+        U_logIn: false,
+      },
     };
   },
   methods: {
     myDetails(input) {
-      this.localUserId = input;
+      this.localUser = input;
     }
     
   },
   provide() {
     return {
-      User_Id: computed(() => this.localUserId)
+      User_Object: computed(() => this.localUser)
     }
   }
 };
