@@ -7,11 +7,10 @@
 
 <div class="welcome_page">
 
-<p>(welcome page)</p>
 
 <div class="logo">
-<h2>x</h2>
-<h2>conclave logo</h2></div>
+<img src="../assets/LOGO(1).png" alt="Conclave Logo">
+</div>
 
 <div class="welcome_div">
     <h1 >Welcome to Conclave!</h1>
@@ -40,16 +39,25 @@
     width: 100vw;
     background-color: #111127 ;
     z-index: 10;
+    padding-top: 100px;
 }
-
 
 .logo {
     color: #63B798;
     font-family: 'Inter';
-    width: 60%;
-    margin: 80px 20% 40px 20% ;
+    width: 40%;
+    margin: 80px 30% 40px 30% ;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
+
+.logo img{
+    width: 100%; 
+}
+
 .welcome_div {
     width: 60%;
     margin: auto;
@@ -73,6 +81,15 @@
     background-color: #63B798;
     padding: 10px;
     border-radius: 30px;
+   
+}
+.welcome_btns router-link:active{
+    color: white;
+    text-decoration: none; 
+}
+
+p{
+    font-weight: 800;
 }
 
 </style>
