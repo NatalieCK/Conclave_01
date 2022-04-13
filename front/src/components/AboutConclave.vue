@@ -1,19 +1,16 @@
 <script setup>
 </script>
 <template>
+
 <div class="container">
 <div class="About_Conclave_Title">
-    <img src="../../LOGO(1).png" alt="Conclave Logo">
     <h1>About Conclave</h1>
 </div>
 <div class="about_text">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi magni pariatur non suscipit debitis repellat aspernatur placeat veniam dolore adipisci ipsam dolor maiores cumque veritatis, inventore voluptatem totam. Quibusdam nisi fuga autem assumenda ullam dolor, voluptatum dignissimos fugiat deserunt quas sunt velit. Laborum pariatur sed doloremque optio quaerat accusantium porro, ad ipsa vitae exercitationem aspernatur ipsam incidunt magni rem totam voluptates. Eius porro quo similique eveniet, minima possimus, facere eligendi in exercitationem error inventore iste, totam ducimus. Laborum, corrupti placeat. Nesciunt quo, autem ipsam ipsum minus impedit? Ad eius quibusdam neque. Perferendis, nobis. Obcaecati quos eligendi, accusantium quasi itaque quia temporibus dolorum impedit ad aspernatur iusto provident, aperiam numquam, blanditiis facilis rem veritatis eaque dignissimos explicabo ipsam fugiat vero. Aperiam cum eos possimus magnam, ratione tempore, obcaecati voluptates animi deserunt modi, at natus fugiat. Laudantium reprehenderit eos at dolorum, illum dolor iure, ad quas totam excepturi, nisi rem repellendus alias aperiam! Dolore explicabo necessitatibus repudiandae assumenda beatae eveniet libero, asperiores incidunt. Et ipsam unde, itaque vel modi totam nisi temporibus consectetur aperiam cum eaque magni consequuntur? Asperiores architecto praesentium aliquam! Nisi, porro ipsa libero debitis fugit placeat animi, doloremque quam eaque, quod modi! Blanditiis eaque adipisci consectetur. Reiciendis, nulla eius.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi magni pariatur non suscipit debitis repellat aspernatur placeat veniam dolore adipisci ipsam dolor maiores cumque veritatis, inventore voluptatem totam. Quibusdam nisi fuga autem assumenda ullam dolor, voluptatum dignissimos fugiat deserunt quas sunt velit. Laborum pariatur sed doloremque optio quaerat accusantium porro, ad ipsa vitae exercitationem aspernatur ipsam incidunt magni rem totam voluptates. Eius porro quo similique eveniet, minima possimus, facere eligendi in exercitationem error inventore iste, totam ducimus. Laborum, corrupti placeat. Nesciunt quo, autem ipsam ipsum minus impedit? Ad eius quibusdam neque. Perferendis, nobis. </p>
 </div>
-
-<img @click="$emit('closeabout')" src="../../ICONS/close_white_24dp.svg" alt="close">
+<img class="close_button" @click="$emit('closeabout')" src="../../ICONS/close_white_24dp.svg" alt="close">
 </div>
-
-
 </template>
 <style>
 
@@ -21,17 +18,43 @@
     text-align: center;
     position: fixed;
     top: 0;
-    height: 100vw;
-    width: 100vh;
+    height: 100%;
+    width: 100%;
     background-color: #111127;
     z-index: 10;
-    padding-top: 100px;
+    padding-top: 175px;
+    display: flex;
+    flex-direction: column;
 }
+.about_logo{
+    width: 50px;
+    padding: 30px;
+    margin: 0px 0px 0px 25px;
+    position: absolute;
+}
+
 .About_Conclave_Title{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0px 30px;
+    
+}
+
+.About_Conclave_Title h1{
+    padding: 0px 10px;
+    font-weight: 600;
+    font-size: 24px;
 }
 .about_text{
+    margin: 0px 30px;
     padding: 10px;
+    text-align: left;
+}
+.close_button{
+    width: 50px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
 }
 </style>
