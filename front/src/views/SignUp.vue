@@ -28,7 +28,8 @@ import ReturnID from "./ReturnID.vue";
   <p >
      {{ User_Id }}
   </p>
-   <p>click HERE to login</p>
+   <p>click <router-link to="/login">HERE</router-link> to login</p>
+   
  </div>
 
   </div>
