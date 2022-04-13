@@ -39,17 +39,17 @@
 
 .postBack{
   position: fixed;
-  top: 0;
+  top: 95px;
   z-index: 1;
 width: 100vw;
-height: 210px;
+height: 100px;
 background-color: #111127;
 }
 
 .writeBox {
   position: fixed;
   background-color: #111127;
-  top: 70px;
+  top: 90px;
   left:0px;
   width: 94vw;
   margin: 3vw;
