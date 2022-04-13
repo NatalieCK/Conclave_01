@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // as a convention we will create new folder in 'src' named 'views' and place components to be linked in there
 // components related to those links needs to be defined below both for import and routes[] array
 import Home from "../views/Home.vue";
-import ConclaveIntro from "../views/ConclaveIntro.vue";
+import AboutConclave from "../views/AboutConclave.vue";
 import FullArticle from "../views/FullArticle.vue";
 import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
@@ -19,8 +19,8 @@ const routes = [
   },
   {
     path: "/about",
-    name: "ConclaveIntro",
-    component: ConclaveIntro,
+    name: "AboutConclave",
+    component: AboutConclave,
   },
   {
     path: "/post",
