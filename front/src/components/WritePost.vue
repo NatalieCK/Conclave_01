@@ -1,14 +1,135 @@
 
 <template>
-  <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1>
-  <textarea v-model="postData.P_content" rows="4" cols="40" placeholder="Post" />
-  <span @click="fillPostData">submit</span>
+<div class="writeBox">
+  <div class="postUser">
+
+      <div v-if="userData.U_status == 'Speaker'" class="avatar_speaker">
+        <div class="avatar_inner">{{ postProp.P_initial }}</div>
+      </div>
+
+<div v-else class="avatar_attendee">
+        <div class="avatar_inner">{{ userData.U_initial }}</div>
+      </div>
+
+      <div class="userInfo">
+        <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1>
+        <h2>{{ userData.U_status }}</h2>
+      </div>
+
+      
+    </div>
+
+  <!-- <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1> -->
+  <textarea v-model="postData.P_content" rows="3"  placeholder="&#10;Share your thoughts..." />
+  
+  <div class="submit">
+    <h2>Post</h2>
+    <div class="spacer"></div>
+  <img @click="fillPostData" src="ICONS/send_white_24dp.svg" alt="">
+</div>
+
+</div>
+
 </template>
+
+
+
 <style scoped>
+
+.writeBox {
+  position: relative;
+  top: 70px;
+  margin: 3vw;
+  border: solid 2px #fff;
+  border-radius: 20px;
+}
+.postUser {
+  display: flex;
+  justify-content: start;
+  margin: 2vw 3vw 0vw;
+}
+
+.submit {
+  display: flex;
+  justify-content: end;
+ height: 25px;
+ align-items: center;
+ margin: 1vw 6vw 2vw;
+}
+
+.avatar_speaker {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin: 0;
+  background-color: #63b798;
+}
+
+.avatar_attendee {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin: 0;
+  background-color: #9369ce;
+}
+
+.avatar_inner {
+  font-family: "Inter", sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2vw;
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
 textarea{
+  
+  margin: 2vw 4.5vw 0vw;
+  padding: 0vw ;
+  width: 91%;
+  border: none;
+  outline: none;
+ 
+  
+  background-color: #111127;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+color: #fff;
+  font-size: 14px;
   resize: none;
 }
 
+textarea::placeholder {
+  text-align: center;
+  color: #ccc;  
+}
+
+.spacer{
+  width: 3vw;
+}
 </style>
 
 <script>
@@ -33,6 +154,7 @@ export default {
         P_content: "",
         P_likes: 0,
         P_comments: 0,
+        P_postComments: [],
       },
     };
   },
