@@ -1,13 +1,41 @@
 <script setup>
-
 </script>
 
 <template>
+  <h1>Log In</h1>
+  <p>
+    Injected User_Id (can NOT directly reach .properties via
+    User_Object.U_fname) {{ User_Id }}
+  </p>
+  <!-- <p>broken sample fname: {{User_Object.U_fname}} </p>
+<br>
+<p>Local Variable loaded with injected value, it CAN reach sub properties via localUserObj.U_fname {{localUserObj}}</p>
+<p>working sample fname: {{localUserObj.U_fname}} </p> -->
 
-<h1>Sign In</h1>
-
+  <div class="login_btn"></div>
 </template>
 
 <style>
-
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      //   localUserId:{}
+    };
+  },
+  methods: {
+    async getUser(userID) {
+      const response = await fetch("http://localhost:4000/users/get/" + userID);
+      const fetchedData = await response.json();
+      this.userData = fetchedData;
+    },
+  },
+  //   created(){
+  //     this.localUserId = this.User_Id;
+  //   },
+
+  inject: ["User_Id"],
+};
+</script>

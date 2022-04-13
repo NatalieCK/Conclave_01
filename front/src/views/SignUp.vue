@@ -1,20 +1,137 @@
 <script setup>
 import SignInHeader from "../components/SignInHeader.vue";
-
-
-
+import LogIn from './LogIn.vue';
+import ReturnID from "./ReturnID.vue";
 </script>
 
 <template>
+<div>
+  <SignInHeader />
 
-<sign-in-header />
+  
+<div class="form_container">
+  <h1 class="sign_in_title">Sign Up</h1>
+  <input type="text" v-model="inputUserData.U_fname" placeholder="First Name" />
+  <input type="text" v-model="inputUserData.U_lname" placeholder="Last Name" />
+  <input type="text" v-model="inputUserData.U_initial" placeholder="Initial" />
+  <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
+  <input type="text" v-model="inputUserData.U_password" placeholder="Password" />
+  <input type="text" v-model="inputUserData.U_status" placeholder="Status" />
 
-<h1>Sign Up</h1>
+  <span class="signupbtn"   @click="addUser" >Sign Up</span>
+</div>
 
+<div :class="{ idhidden : IdDisplay }">
+ <p>your user id is as follows:</p> 
+  <p >
+     {{ User_Id }}
+  </p>
+   <p>click HERE to login</p>
+ </div>
 
-
+  </div>
 </template>
 
 <style>
+*{
+  font-family: 'Inter';
+}
+.idhidden {
+  display: none;
+}
 
+.sign_in_title{
+  align-self: flex-start;
+}
+
+.signupbtn {
+  width: 100px;
+  background-color: #63B798;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form_container{
+  margin: 100px 10% 0px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 4px solid #9369CE;
+  background: none;
+  display: flex;
+  margin: 15px 0px;
+  font-weight: 600;
+  font-size: 16px;
+}
 </style>
+
+
+<script>
+export default {
+  components: { LogIn },
+  data() {
+    return {
+      // localUserId:"",
+      IdDisplay: true,
+      usersData: [],
+      inputUserData: {
+        U_fname: "",
+        U_lname: "",
+        U_initial: "",
+        U_email: "",
+        U_password: "",
+        U_status: "",
+        U_logIn: false,
+      },
+    };
+  },
+  methods: {
+    async fetchAPI() {
+      const response = await fetch("http://localhost:4000/users/");
+      const fetchedData = await response.json();
+      this.usersData = fetchedData;
+    },
+    async addUser() {
+      const response = await fetch("http://localhost:4000/users/adduser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.inputUserData),
+      });
+      const fetchedData = await response.json();
+    this.$emit("userDetailsCreated", fetchedData._id),
+    console.log(fetchedData),
+    this.IdDisplay = false
+       },
+    async delUser(userID) {
+      const fetchURL = "http://localhost:4000/users/delete/" + userID;
+      const response = await fetch(fetchURL, { method: "DELETE" });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+    },
+    async updateUser(userID) {
+      const fetchURL = "http://localhost:4000/users/update/" + userID;
+      const response = await fetch(fetchURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.inputUserData),
+      });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+    },
+  },
+   inject: ["User_Id"],
+  created() {
+  // this.localUserId = this.User_Id;
+  },
+  emits:["userDetailsCreated"]
+};
+</script>
