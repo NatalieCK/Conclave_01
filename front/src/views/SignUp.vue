@@ -8,7 +8,6 @@ import ReturnID from "./ReturnID.vue";
 <div>
   <SignInHeader />
 
-  
 <div class="form_container">
   <h1 class="sign_in_title">Sign Up</h1>
   <input type="text" v-model="inputUserData.U_fname" placeholder="First Name" />
@@ -16,10 +15,16 @@ import ReturnID from "./ReturnID.vue";
   <input type="text" v-model="inputUserData.U_initial" placeholder="Initial" />
   <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
   <input type="text" v-model="inputUserData.U_password" placeholder="Password" />
-  <input type="text" v-model="inputUserData.U_status" placeholder="Status" />
+  <!-- <input type="text" v-model="inputUserData.U_status" placeholder="Status" /> -->
 
+<select v-model="inputUserData.U_status" id="cars" name="cars">
+  <option value="Speaker">Speaker</option>
+  <option value="Attendee">Attendee</option>
+</select>
   <span class="signupbtn"   @click="addUser" >Sign Up</span>
 </div>
+
+
 
 <div :class="{ idhidden : IdDisplay }">
  <p>your user id is as follows:</p> 
@@ -36,6 +41,7 @@ import ReturnID from "./ReturnID.vue";
 <style>
 *{
   font-family: 'Inter';
+  color: white;
 }
 .idhidden {
   display: none;
@@ -43,6 +49,7 @@ import ReturnID from "./ReturnID.vue";
 
 .sign_in_title{
   align-self: flex-start;
+  font-weight: 700;
 }
 
 .signupbtn {
@@ -64,14 +71,28 @@ import ReturnID from "./ReturnID.vue";
 
 input[type=text]{
   width: 100%;
-  padding: 5px;
+  padding: 10px;
   border: none;
-  border-bottom: 4px solid #9369CE;
+  border-bottom: 3px solid #9369CE;
   background: none;
   display: flex;
-  margin: 15px 0px;
+  margin: 10px 0px;
   font-weight: 600;
   font-size: 16px;
+  
+}
+
+select{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 3px solid #9369CE;
+  background: none;
+  display: flex;
+  margin: 10px 0px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
 }
 </style>
 
