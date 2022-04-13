@@ -56,7 +56,7 @@ import ReturnID from "./ReturnID.vue";
 }
 
 .form_container{
-  margin: 100px 10% 0px 10%;
+  margin: 50px 10% 0px 10%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -64,7 +64,7 @@ import ReturnID from "./ReturnID.vue";
 
 input[type=text]{
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   border: none;
   border-bottom: 4px solid #9369CE;
   background: none;
