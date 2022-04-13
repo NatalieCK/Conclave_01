@@ -1,5 +1,6 @@
 
 <template>
+<div class="postBack">
 <div class="writeBox">
   <div class="postUser">
 
@@ -19,7 +20,7 @@
       
     </div>
 
-  <!-- <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1> -->
+  
   <textarea v-model="postData.P_content" rows="3"  placeholder="&#10;Share your thoughts..." />
   
   <div class="submit">
@@ -29,17 +30,30 @@
 </div>
 
 </div>
-
+</div>
 </template>
 
 
 
 <style scoped>
 
+.postBack{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+width: 100vw;
+height: 210px;
+background-color: #111127;
+}
+
 .writeBox {
-  position: relative;
+  position: fixed;
+  background-color: #111127;
   top: 70px;
+  left:0px;
+  width: 94vw;
   margin: 3vw;
+  z-index: 2;
   border: solid 2px #fff;
   border-radius: 20px;
 }
@@ -124,7 +138,7 @@ color: #fff;
 
 textarea::placeholder {
   text-align: center;
-  color: #ccc;  
+  color: #aaa;  
 }
 
 .spacer{
