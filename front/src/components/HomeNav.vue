@@ -5,7 +5,7 @@
             <img src="../assets/LOGO(1).png" alt="logo" class="logo">
         </div>
         <div class="header_container">
-            <div class="header">conference</div>
+            <div class="header">armageddon</div>
         </div>
         <div class="navbar_container">
             <img src="../assets/nav.svg" alt="" class="svg_nav" @click="nav_drop">
@@ -54,6 +54,7 @@
     border-bottom-right-radius: 33px;
     font-family: 'inter';
     font-size: 28px;
+    font-weight: lighter;
 }
 
 .logo {
@@ -117,8 +118,8 @@
 export default {
   data() {
   return {
-    count: 68,
-    name: 'Vue.js'
+    count: 1,
+    name: 'x'
   }
 },
     methods: {

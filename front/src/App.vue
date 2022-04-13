@@ -26,7 +26,7 @@
 export default {
   data() {
     return {
-      modal: false,
+      modal: true,
       localUserId: "",
     };
   },
