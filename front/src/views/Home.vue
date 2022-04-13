@@ -1,15 +1,22 @@
 <script setup>
+
+import PostList from '../components/PostList.vue';
 import HomeNav from '../components/HomeNav.vue';
-import FullNav from '../components/FullNav.vue';
-import WideMode from './WideMode.vue';
+
+
+
+
+
 
 </script>
 
 <template>
 <div>
-<!-- <HomeNav />
-<FullNav /> -->
-<WideMode />
+
+<HomeNav />
+<PostList />
+
+
 </div>
 </template>
 
