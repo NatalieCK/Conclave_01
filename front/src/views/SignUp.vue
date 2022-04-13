@@ -8,20 +8,18 @@ import ReturnID from "./ReturnID.vue";
 <div>
   <SignInHeader />
 
-  <h1>Sign Up</h1>
-
+  
+<div class="form_container">
+  <h1 class="sign_in_title">Sign Up</h1>
   <input type="text" v-model="inputUserData.U_fname" placeholder="First Name" />
   <input type="text" v-model="inputUserData.U_lname" placeholder="Last Name" />
   <input type="text" v-model="inputUserData.U_initial" placeholder="Initial" />
   <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
-  <input
-    type="text"
-    v-model="inputUserData.U_password"
-    placeholder="Password"
-  />
+  <input type="text" v-model="inputUserData.U_password" placeholder="Password" />
   <input type="text" v-model="inputUserData.U_status" placeholder="Status" />
 
   <span class="signupbtn"   @click="addUser" >Sign Up</span>
+</div>
 
 <div :class="{ idhidden : IdDisplay }">
  <p>your user id is as follows:</p> 
@@ -35,15 +33,44 @@ import ReturnID from "./ReturnID.vue";
 </template>
 
 <style>
-
+*{
+  font-family: 'Inter';
+}
 .idhidden {
   display: none;
 }
 
+.sign_in_title{
+  align-self: flex-start;
+}
+
 .signupbtn {
-  background-color: white;
-  color: navy;
+  width: 100px;
+  background-color: #63B798;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form_container{
+  margin: 100px 10% 0px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input[type=text]{
+  width: 100%;
   padding: 10px;
+  border: none;
+  border-bottom: 4px solid #9369CE;
+  background: none;
+  display: flex;
+  margin: 15px 0px;
+  font-weight: 600;
+  font-size: 16px;
 }
 </style>
 
