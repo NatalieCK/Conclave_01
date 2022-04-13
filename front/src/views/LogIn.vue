@@ -16,16 +16,16 @@ import SignInHeader from "../components/SignInHeader.vue";
 </div>
 
 <div class="login_input">
-  <input type="text" name="userid"  placeholder="user id" value="localUserObj._id" />
-  <input type="text" name="userpass"  placeholder="password" />
+  <input type="text" name="userid"  placeholder="user id" :value="localUserObj._id" />
+  <input type="text" name="userpass"  placeholder="password" :value="localUserObj.U_password" />
 </div>
-<br>
+<!-- <br>
 <p>
     Injected User_Id  {{ localUserObj._id }}
   </p>
   <p>Injected User Password {{localUserObj.U_password}}</p>
 
-  <br>
+  <br> -->
 
 <div class="no_pass">
   <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
