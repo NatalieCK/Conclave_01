@@ -5,7 +5,31 @@ import SignInHeader from "../components/SignInHeader.vue";
 <template>
  <SignInHeader />
 
-  <h1>Log In</h1>
+  <h1>Conference Code</h1>
+
+<div class="code_box">
+  <input type="number" id="quantity" name="quantity" min="1" max="9">
+  <input type="number" id="quantity" name="quantity" min="1" max="9">
+  <input type="number" id="quantity" name="quantity" min="1" max="9">
+  <input type="number" id="quantity" name="quantity" min="1" max="9">
+  <input type="number" id="quantity" name="quantity" min="1" max="9">
+</div>
+
+<div class="login_input">
+  <input type="text" name="userid"  placeholder="user id" value="User_Id" />
+  <input type="text" name="userpass"  placeholder="password" />
+</div>
+<br>
+<p>
+    Injected User_Id  {{ User_Id }}
+  </p>
+  <p>Injected User Password {{}}</p>
+
+  <br>
+
+<div class="no_pass">
+  <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
+</div>
   <!-- <p>
     Injected User_Id (can NOT directly reach .properties via
     User_Object.U_fname) {{ User_Id }}
@@ -20,6 +44,11 @@ import SignInHeader from "../components/SignInHeader.vue";
 
 <style>
 
+.login_input {
+  display: flex;
+  flex-direction: column;
+}
+
 .login_btn {
   width: 100px;
   text-align: center;
@@ -33,7 +62,10 @@ import SignInHeader from "../components/SignInHeader.vue";
 export default {
   data() {
     return {
-      //   localUserId:{}
+       userData: {
+    
+      },
+        localUserId:{}
     };
   },
   methods: {
@@ -43,9 +75,17 @@ export default {
       this.userData = fetchedData;
     },
   },
-  //   created(){
-  //     this.localUserId = this.User_Id;
-  //   },
+    // created(){
+    //   this.localUserId = this.User_Id;
+    // },
+  created() {
+    this.localUserId = this.User_Id;
+    const currentUserID = localUserId;
+    console.log("example"+currentUserID);
+   console.log(this.localUserId);
+    this.getUser(currentUserID);
+    
+  },
 
   inject: ["User_Id"],
 };
