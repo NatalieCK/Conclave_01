@@ -24,9 +24,10 @@ import ReturnID from "./ReturnID.vue";
 <div :class="{ idhidden : IdDisplay }">
  <p>your user id is as follows:</p> 
   <p >
-     {{ User_Id }}
+     {{ localUserObj._id }}
   </p>
-   <p>click HERE to login</p>
+   <p>click <router-link to="/login">HERE</router-link> to login</p>
+   
  </div>
 
   </div>
@@ -80,7 +81,7 @@ export default {
   components: { LogIn },
   data() {
     return {
-      // localUserId:"",
+      localUserObj:{},
       IdDisplay: true,
       usersData: [],
       inputUserData: {
@@ -107,7 +108,7 @@ export default {
         body: JSON.stringify(this.inputUserData),
       });
       const fetchedData = await response.json();
-    this.$emit("userDetailsCreated", fetchedData._id),
+    this.$emit("userDetailsCreated", fetchedData),
     console.log(fetchedData),
     this.IdDisplay = false
        },
@@ -128,10 +129,12 @@ export default {
       this.fetchAPI();
     },
   },
-   inject: ["User_Id"],
-  created() {
-  // this.localUserId = this.User_Id;
+created() {
+  this.localUserObj = this.User_Object;
   },
+
+   inject: ["User_Object"],
+  
   emits:["userDetailsCreated"]
 };
 </script>
