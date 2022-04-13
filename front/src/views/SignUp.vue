@@ -17,7 +17,7 @@ import ReturnID from "./ReturnID.vue";
   <input type="text" v-model="inputUserData.U_password" placeholder="Password" />
   <!-- <input type="text" v-model="inputUserData.U_status" placeholder="Status" /> -->
 
-<select v-model="inputUserData.U_status" id="cars" name="cars">
+<select v-model="inputUserData.U_status" id="cars" value="Status" placeholder="Status" name="cars">
   <option value="Speaker">Speaker</option>
   <option value="Attendee">Attendee</option>
 </select>
@@ -41,7 +41,7 @@ import ReturnID from "./ReturnID.vue";
 <style>
 *{
   font-family: 'Inter';
-  color: white;
+  color: white!important;
 }
 .idhidden {
   display: none;
@@ -81,7 +81,6 @@ input[type=text]{
   font-size: 16px;
   
 }
-
 select{
   width: 100%;
   padding: 10px;
@@ -94,6 +93,7 @@ select{
   font-size: 16px;
   color: white;
 }
+
 </style>
 
 
