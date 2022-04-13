@@ -26,6 +26,7 @@
 export default {
   data() {
     return {
+
       modal: false,
         localUser: {
         U_fname: "",
@@ -36,6 +37,8 @@ export default {
         U_status: "",
         U_logIn: false,
       },
+      localUserId: "",
+
     };
   },
   methods: {

@@ -14,6 +14,13 @@ hello world from joeio
 
 12/4 TOM - OUTCOME The team agreed with my changes, so I used the tools to delete the existing data in the database, and then we updated the schemas on the repository. We sorted out app.vue and agreed upon a state which we would leave it each time we merged our branches. I was unsure of how to handle the 'Current User' data and asked Utku if there was a global variable in Vue - he looked into it and returned with the 'provide/inject' option. I rebuilt and tested the frontend tools/templates and posted them for the group. In doing so I realized there were some tweaks we still had to make to the schemas (data definitions). INTENTION - to update the schemas on the repository, recreate a bunch of users and posts for the database, investigate 'provide/inject', and get the construction of the PostList component underway.
 
+13/4 TOM - OUTCOME I deleted the existing posts on the database, we updated the schemas, and I re-entered the posts (to aid postList construction). I built the PostList component and got it functioning from the database. I left the provide/inject to team members (Natalie and Joy) dealing with The signup/login process for the meantime. I started developing the WritePost component, beginning with building a getUser function to get the user details of 'Current User' based on a user ID (to be provided by provide/inject) - I got this part working. INTENTION - To finish buiding the WritePost component, get it sending posts to the database. Then start work on the FullArticle view page by investigating sending selected post data to the new view. To investigate a way to reverse the order that posts were being displayed via the v-for loop (so that the most recent posts displayed first instead of last)
+
+14/4 TOM - OUTCOME I found code to reverse the order of the postList and implemented it. I got the WritePost component functional and styled. When putting the Home view elements (HomeNav, WriePost, Postlist) together on the Home view I had some concerns about the vertical real estate of the page - considering the range of mobile formats. I was frustrated in my attempts to link to the FullArticle view while carrying the selected post data to it. Given the short time we have left I wonder if it would be best to abandon the 'FullArticle' view idea and have the interactivity and comments with the Posts on the Home view. INTENTION - To discuss possible solutions for dealing with the vertical real estate issue. To discuss the possibilty of abandoning the FullArticle approach. To move forward on adding interactivity ( update, delete ) and comments to the posts in whatever format is deemed best.
+
+
+
+
 5/4 NATALIE - Collaboratively finalising deisgn work, as well as collaborative planning for code development.
 
 6/4 NATALIE - created new project folder collaboratively with the group, making sure file structure was accurate. Uploaded to github as a new repository. 
@@ -27,5 +34,10 @@ hello world from joeio
 
 12/4 NAT - Started to develop funtionality on earlier pages. Got advice on tutor on how to implement provide/ inject, extracting user data from the sign up form and providing it to the parent 'app.vue', so that it could be injected into child and grandchild pages. Began work connecting all pages via router view. In both actions, working to achieve base functionality on assigned pages of 'welcome', 'signup' and 'login'
 
-13/4 continued working towards linking pages via router view. Tom had already developed the index.js, so I discussed and developed this collaboratively with him. Had some issues with the 'welcome' modal becoming hidden, but troubleshooted with the group. Router view was functional. 
+
+13/4 NAT - continued working towards linking pages via router view. Tom had already developed the index.js, so I discussed and developed this collaboratively with him. Had some issues with the 'welcome' modal becoming hidden, but troubleshooted with the group. Router view was functional. 
 Tried alternative method suggested for injecting information suggested, but wasn't successful so went back to method developed Tuesday. Managed to get feedback of user data on signup and login functional using inject. Communicated with Joy who was managing the styling of these pages, working closely to make sure our changes and merges were aligning. 
+
+
+
+

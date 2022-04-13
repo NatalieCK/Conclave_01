@@ -45,7 +45,7 @@
 <style scoped>
 .postBox {
   position: relative;
-  top: 170px;
+  top: 175px;
   margin: 3vw;
   border: solid 5px #63b798;
   border-radius: 3px;

@@ -2,7 +2,7 @@
 <WritePost @PostListTrigger="fetchAPI" />
 
   <Post
-    v-for="post in postsData"
+    v-for="post in postsData.slice().reverse()"
     :key="post._id"
     :postProp="post"
   />
