@@ -5,6 +5,8 @@
     v-for="post in postsData.slice().reverse()"
     :key="post._id"
     :postProp="post"
+    @delPostEmit="delPost"
+    @updPostEmit="updatePost"
   />
 </template>
 
@@ -30,6 +32,26 @@ export default {
       const response = await fetch("http://localhost:4000/posts/");
       const fetchedData = await response.json();
       this.postsData = fetchedData;
+    },
+    async delPost(postID) {
+      const fetchURL = "http://localhost:4000/posts/delete/" + postID;
+      const response = await fetch(fetchURL, { method: "DELETE" });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+    },
+    async updatePost(postData) {
+      const fetchURL = "http://localhost:4000/posts/update/" + postData._id;
+      const response = await fetch(fetchURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postData),
+      });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+    },
+    addLike(postID){
+      // this.inputPostData.P_likes++;
+      this.updatePost(postID);
     }
   },
   created() {
