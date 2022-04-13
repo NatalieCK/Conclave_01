@@ -1,17 +1,22 @@
-
 <template>
-
 <div class="header_flex">
 <img class="logo" src="../assets/LOGO(1).png" alt="Conclave Logo">
 <div class="center_container">
 <h3 class="ConferenceRMtitle">Conference Rooms</h3>
 </div>
-<img class="about_button" src="../../ICONS/help_outline_white_24dp.svg" alt="Conclave About Button">
+<img @click="about=false" class="about_button" src="../../ICONS/help_outline_white_24dp.svg" alt="Conclave About Button">
 </div>
+
+<div>
+    <div :class="{ about_hidden: about}">
+       <AboutConclave @closeabout="about=true" />
+    </div>
+<!-- @aboutmodal="about=true" -->
+    <router-view @userDetailsCreated="myDetails"></router-view>
+</div>
+
 </template>
-
 <style>
-
 .header_flex {
     display: flex;
     justify-content: space-between;
@@ -20,11 +25,6 @@
     padding: 0px 10px;
 }
 
-/* .logo {
-    margin-top: 20px;
-    width: 50px;
-    height: 50px;
-} */
 .logo {
     color: #63B798;
     width: 15%;
@@ -37,7 +37,6 @@
 .logo img{
     width: 100%; 
 }
-
 .center_container {
     display: flex;
     justify-content: center;
@@ -51,16 +50,25 @@
     font-family: 'inter';
     font-size: 16px;
 }
-
 .about_button{
     width: 50px;
     padding: 10px;
 }
 
+.about_hidden{
+    display: none;
+}
+
 </style>
-
 <script setup>
-
-
-
+import AboutConclave from "../components/AboutConclave.vue";
+</script>
+<script> 
+export default {
+  data() {
+  return {
+    about: true
+  }
+}
+}
 </script>
