@@ -32,7 +32,6 @@ import ReturnID from "./ReturnID.vue";
         v-model="inputUserData.U_password"
         placeholder="Password"
       />
-      <!-- <input type="text" v-model="inputUserData.U_status" placeholder="Status" /> -->
 
       <select name="status" v-model="inputUserData.U_status">
         <option value="Attendee">Attendee</option>
@@ -121,7 +120,6 @@ export default {
   components: { LogIn },
   data() {
     return {
-      // localUserObj:{},
       IdDisplay: true,
       usersData: [],
       inputUserData: {
@@ -171,12 +169,14 @@ export default {
     },
   },
 created() {
+     // Below is the method we would use for provide/ inject (currently undergoing updates, not reliable)
   // this.localUserObj = this.User_Object;
 
   let temp = localStorage.getItem('storedUserObj');
        this.storedUserObj = JSON.parse(temp);
   },
 
+   // Below is the method we would use for provide/ inject (currently undergoing updates, not reliable)
   //  inject: ["User_Object"],
   
   emits:["userDetailsCreated"]

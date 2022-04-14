@@ -150,23 +150,8 @@ textarea::placeholder {
 export default {
   data() {
     return {
-      // userData: {
-      //   U_fname: "",
-      //   U_lname: "",
-      //   U_initial: "",
-      //   U_email: "",
-      //   U_password: "",
-      //   U_status: "",
-      //   U_logIn: "",
-      // },
+   
       localUserObj:{
-        U_fname: "",
-        U_lname: "",
-        U_initial: "",
-        U_email: "",
-        U_password: "",
-        U_status: "",
-        U_logIn: "",
       },
       postData: {
         P_userID: "",
@@ -182,12 +167,11 @@ export default {
     };
   },
   methods: {
-    // async getUser(userID) {
-    //   const response = await fetch("http://localhost:4000/users/get/" + storedUserObj._id);
-    //   const fetchedData = await response.json();
-    //   this.localUserObj = fetchedData;
-    //   console.log(fetchedData)
-    // },
+async getUser() {
+      const response = await fetch("http://localhost:4000/users/get/" + this.storedUserObj._id);
+      const fetchedData = await response.json();
+      this.localUserObj = fetchedData;
+    },
     
     async addPost(inputPostData) {
       const response = await fetch("http://localhost:4000/posts/addpost", {
@@ -224,19 +208,13 @@ export default {
     }
   },
   created() {
-    // const currentUserID = "62550ea9903b5e4fb166f9cb";
-    // this.getUser(currentUserID);
-    // this.localUserObj = this.User_Object;
-
+ 
      let temp = localStorage.getItem('storedUserObj');
        this.storedUserObj = JSON.parse(temp);
-       this.localUserObj = this.storedUserObj;
+       this.getUser();
 
-// const currentUserID = storedUserObj._id;
-
-       
   },
-  // inject: ["User_Object"],
+
   emits: ["PostListTrigger"]
 };
 </script>

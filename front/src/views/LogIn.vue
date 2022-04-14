@@ -5,44 +5,16 @@ import SignInHeader from "../components/SignInHeader.vue";
 <template>
  <SignInHeader />
 
-  
-
-<!-- <div class="code_box">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-</div> -->
-
 <div class="login_input">
   <h1 class="login_title">Login to Conclave</h1>
-  <input type="text" name="userid"  placeholder="User ID" :value="storedUserObj._id" />
-  <input type="text" name="userpass"  placeholder="Password" :value="storedUserObj.U_password" />
+  <input type="text" name="userid"  placeholder="User ID" :value="localUserObj._id" />
+  <input type="text" name="userpass"  placeholder="Password" :value="localUserObj.U_password" />
 <div class="no_pass">
   <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
 </div>
   <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
 </div>
 
-<span>{{localUserObj}}</span>
-<!-- <br>
-<p>
-    Injected User_Id  {{ localUserObj._id }}
-  </p>
-  <p>Injected User Password {{localUserObj.U_password}}</p>
-
-  <br> -->
-
-
-  <!-- <p>
-    Injected User_Id (can NOT directly reach .properties via
-    User_Object.U_fname) {{ User_Id }}
-  </p> -->
-  <!-- <p>broken sample fname: {{User_Object.U_fname}} </p>
-<br>
-<p>Local Variable loaded with injected value, it CAN reach sub properties via localUserObj.U_fname {{localUserObj}}</p>
-<p>working sample fname: {{localUserObj.U_fname}} </p> -->
 
 
 </template>
@@ -80,7 +52,6 @@ input[type=text]{
   border-radius: 50px;
   text-align: center;
   font-weight: 600;
-  /* text-decoration: none; */
 }
 
 </style>
@@ -89,9 +60,6 @@ input[type=text]{
 export default {
   data() {
     return {
-      //  userData: {
-    
-      // }
         localUserObj:{}
     };
   },
@@ -103,17 +71,12 @@ export default {
     },
   },
     created(){
-      // this.localUserObj = this.User_Object;
-      // console.log(this.localUserObj);
+     
       let temp = localStorage.getItem('storedUserObj');
        this.storedUserObj = JSON.parse(temp);
       this.getUser();
-      // let userData = JSON.parse(temp);
-      // console.log('this'+userData.U_fname);
-      // console.log('hello');
-    },
 
-  // inject: ["User_Object"],
+    },
   
 };
 </script>
