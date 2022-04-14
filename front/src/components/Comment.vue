@@ -5,17 +5,17 @@
 
     <div class="commentUser">
 
-      <div v-if="commentProp.C_status == 'Speaker'" class="avatar_speaker">
-        <div class="avatar_inner">{{ commentProp.C_initial }}</div>
+      <div v-if="commentData.C_status == 'Speaker'" class="avatar_speaker">
+        <div class="avatar_inner">{{ commentData.C_initial }}</div>
       </div>
 
 <div v-else class="avatar_attendee">
-        <div class="avatar_inner">{{ commentProp.C_initial }}</div>
+        <div class="avatar_inner">{{ commentData.C_initial }}</div>
       </div>
 
       <div class="userInfo">
-        <h1>{{ commentProp.C_fname }} {{ commentProp.C_lname }}</h1>
-        <h2>{{ commentProp.C_status }}</h2>
+        <h1>{{ commentData.C_fname }} {{ commentData.C_lname }}</h1>
+        <h2>{{ commentData.C_status }}</h2>
       </div>
     </div>
 
@@ -25,14 +25,14 @@
     </div>
 
     <div class="commentText">
-      <h3>{{ commentProp.C_content }}</h3>
+      <h3>{{ commentData.C_content }}</h3>
     </div>
 
 <div class="bottomRow">
 
       <div @click="likeCommentEmit" class="likeNumbers">
         <img class="likeIcon" src="ICONS/thumb_up_white_24dp.svg" alt="likes" />
-        <h4 v-if="commentProp.C_likes" >{{ commentProp.C_likes }}</h4>
+        <h4 v-if="commentData.C_likes" >{{ commentData.C_likes }}</h4>
       </div>
 
     </div>
@@ -42,8 +42,8 @@
 
 <style scoped>
 .commentBox {
-  position: relative;
-  top: 175px;
+  /* position: relative; */
+  /* top: 175px; */
   margin: 3vw;
   border: solid 2px #9369ce;
   border-radius: 3px;
@@ -160,14 +160,37 @@ h5 {
 
 <script>
 export default {
+  data() {
+    return {
+      commentData: {
+        C_postID: "",
+        C_userID: "",
+        C_fname: "",
+        C_lname: "",
+        C_initial: "",
+        C_status: "",
+        C_content: "",
+        C_likes: 0,
+      },
+    };
+  },
   methods: {
+    async getComment(commentID) {
+      const response = await fetch("http://localhost:4000/comments/get/" + commentID);
+      const fetchedData = await response.json();
+      this.commentData = fetchedData;
+    },
     delCommentEmit() {
-      this.$emit("delCommentEmit", this.commentProp._id);
+      this.$emit("delCommentEmit", this.commentData._id);
     },
     likeCommentEmit() {
-      this.commentProp.C_likes++
-      this.$emit("updCommentEmit", this.commentProp);
+      this.commentData.C_likes++
+      this.$emit("updCommentEmit", this.commentData);
     }
+  },
+  created() {
+    this.getComment(this.commentID);
+    console.log(this.commentID);
   },
   emits: ["delCommentEmit", "updCommentEmit"],
 };
@@ -176,8 +199,8 @@ export default {
 <script setup>
 
 defineProps({
-  commentProp: {
-    type: Object,
+  commentID: {
+    type: String,
     required: true,
   },
 });

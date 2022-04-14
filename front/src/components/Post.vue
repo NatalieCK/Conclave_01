@@ -61,7 +61,11 @@
 </div>
 
 <div v-if="postProp.P_postComments[0]" >
-<Comment />
+<Comment 
+v-for="commentID in postProp.P_postComments"
+:key="commentID"
+:commentID="commentID"
+/>
 </div>
 
   </div>

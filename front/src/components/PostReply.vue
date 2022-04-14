@@ -184,7 +184,10 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(inputCommentData),
       });
-
+      const fetchedData = await response.json();
+      console.log(fetchedData._id);
+      this.postDataProp.P_postComments.push(fetchedData._id);
+      console.log(this.postDataProp.P_postComments[0]);
     //   this.$emit("CommentListTrigger");
       this.commentData = {
         C_postID: "",
@@ -196,7 +199,20 @@ export default {
         C_content: "",
         C_likes: 0,
       };
+      this.updatePost(this.postDataProp);
+      this.cancelComment();
     },
+    async updatePost(postData) {
+      const fetchURL = "http://localhost:4000/posts/update/" + postData._id;
+      const response = await fetch(fetchURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postData),
+      });
+      const fetchedData = await response.json();
+      
+    
+  },
     fillCommentData() {
       if (this.commentData.C_content == "") {
         console.log("no content");
@@ -210,8 +226,8 @@ export default {
       this.commentData.C_status = this.userData.U_status;
       this.addComment(this.commentData);
 
-    //   this.postDataProp.P_postComments.push(this.commentData._id);
-    //   console.log(this.postDataProp.P_postComments[0]);
+      // this.postDataProp.P_postComments.push(this.commentData._id);
+      // console.log(this.postDataProp.P_postComments[0]);
     
 
     },
