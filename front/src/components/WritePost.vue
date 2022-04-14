@@ -4,17 +4,17 @@
 <div class="writeBox">
   <div class="postUser">
 
-      <div v-if="userData.U_status == 'Speaker'" class="avatar_speaker">
+      <div v-if="localUserObj.U_status == 'Speaker'" class="avatar_speaker">
         <div class="avatar_inner">{{ postProp.P_initial }}</div>
       </div>
 
 <div v-else class="avatar_attendee">
-        <div class="avatar_inner">{{ userData.U_initial }}</div>
+        <div class="avatar_inner">{{ localUserObj.U_initial }}</div>
       </div>
 
       <div class="userInfo">
-        <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1>
-        <h2>{{ userData.U_status }}</h2>
+        <h1>{{ localUserObj.U_fname }} {{ localUserObj.U_lname }}</h1>
+        <h2>{{ localUserObj.U_status }}</h2>
       </div>
 
       
@@ -150,15 +150,16 @@ textarea::placeholder {
 export default {
   data() {
     return {
-      userData: {
-        U_fname: "",
-        U_lname: "",
-        U_initial: "",
-        U_email: "",
-        U_password: "",
-        U_status: "",
-        U_logIn: "",
-      },
+      // userData: {
+      //   U_fname: "",
+      //   U_lname: "",
+      //   U_initial: "",
+      //   U_email: "",
+      //   U_password: "",
+      //   U_status: "",
+      //   U_logIn: "",
+      // },
+      localUserObj:{},
       postData: {
         P_userID: "",
         P_fname: "",
@@ -173,11 +174,11 @@ export default {
     };
   },
   methods: {
-    async getUser(userID) {
-      const response = await fetch("http://localhost:4000/users/get/" + userID);
-      const fetchedData = await response.json();
-      this.userData = fetchedData;
-    },
+    // async getUser(userID) {
+    //   const response = await fetch("http://localhost:4000/users/get/" + userID);
+    //   const fetchedData = await response.json();
+    //   this.userData = fetchedData;
+    // },
     async addPost(inputPostData) {
       const response = await fetch("http://localhost:4000/posts/addpost", {
         method: "POST",
@@ -203,19 +204,21 @@ export default {
         console.log("no content");
         return;
       };
-      this.postData.P_userID=this.userData._id;
-      this.postData.P_fname=this.userData.U_fname;
-      this.postData.P_lname=this.userData.U_lname;
-      this.postData.P_initial=this.userData.U_initial;
-      this.postData.P_status=this.userData.U_status;
+      this.postData.P_userID=this.localUserObj._id;
+      this.postData.P_fname=this.localUserObj.U_fname;
+      this.postData.P_lname=this.localUserObj.U_lname;
+      this.postData.P_initial=this.localUserObj.U_initial;
+      this.postData.P_status=this.localUserObj.U_status;
       this.addPost(this.postData);
       console.log(this.postData)
     }
   },
   created() {
-    const currentUserID = "62550ea9903b5e4fb166f9cb";
-    this.getUser(currentUserID);
+    // const currentUserID = "62550ea9903b5e4fb166f9cb";
+    // this.getUser(currentUserID);
+    this.localUserObj = this.User_Object;
   },
+  inject: ["User_Object"],
   emits: ["PostListTrigger"]
 };
 </script>
