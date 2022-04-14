@@ -40,16 +40,24 @@ Tried alternative method suggested for injecting information suggested, but wasn
 
 
 JOE D
-5/4 Vue and git study. 
+2022-04-05 Vue and git study. 
 
-6/4 Built avatar prototype code and tested branch merging w Tom, struggled with github and committing node module changes to the main branch.
+2022-04-06 Built avatar prototype code and tested branch merging w Tom, struggled with github and committing node module changes to the main branch.
 
-7/4 Built dropdown prototype code with vue. Contributed to discussions on schema structures. 
+2022-04-07 Built dropdown prototype code with vue. Contributed to discussions on schema structures, studied component hierachy. 
 
-8/4 Unwell with headache. 
+2022-04-08 Unwell with headache. 
 
-10/4 Vue and javascript study.
+2022-04-10 Vue and javascript study.
 
-11/4 
+2022-04-11 Collaborative group meeting and discussions re updating backend and rebuilding front end structures. Tom to progress. Build U_avatar, P_avatar and C_avatar - to be linked to database. Sketched a design for WritePost that was subsequently discarded due to Tom progressing that area of the home.vue. 
+Intention - continue filling in the gaps and styling components. 
 
+2022-04-12 Updated user, comment and post models according to group revisions. Merged avatars and styled homeNav, fullNav and dropdown from burger menu using toggle system. 
+Intention - piece together greater understanding of front back end connection in order to better contribute. 
+
+2022-04-13 Collaborative group discussion re critical coding phase of project. Nat and Tom taking leadership roles in major project components while Joy and I lead styling. Touched up full article nav bar after group discussions, designed and scripted a widemode component. Need to see Toms post structure to understand implementation of wide mode and full article structure. 
+Intention - wait for Tom to complete key work before progressing. 
+
+2022-04-14 Documentation day. Intention - touch up my components and there relationship to the total app tomorrow once Tom and Nat have done the bulk of their work and they commence on documentation. 
 
