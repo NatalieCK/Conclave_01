@@ -1,5 +1,8 @@
 <template>
   <div class="postBox">
+
+    <div class="topRow">
+
     <div class="postUser">
 
       <div v-if="postProp.P_status == 'Speaker'" class="avatar_speaker">
@@ -16,18 +19,26 @@
       </div>
     </div>
 
+<div @click="delEmit" class="deletePost">
+<h5>x</h5>
+</div>
+    </div>
+
     <div class="postText">
       <h3>{{ postProp.P_content }}</h3>
     </div>
 
-    <div class="iconNumbers">
-      <div v-if="postProp.P_likes" class="likeNumbers">
+<div class="bottomRow">
+
+    <!-- <div class="iconNumbers"> -->
+
+      <div @click="updateEmit" class="likeNumbers">
         <img class="likeIcon" src="ICONS/thumb_up_white_24dp.svg" alt="likes" />
-        <h4>{{ postProp.P_likes }} Like</h4>
-        <h4 v-if="postProp.P_likes > 1">s</h4>
+        <h4 v-if="postProp.P_likes" >{{ postProp.P_likes }}</h4>
+        <!-- <h4 v-if="postProp.P_likes > 1">s</h4> -->
       </div>
 
-      <div v-if="postProp.P_likes" class="spaceNumbers"></div>
+      <!-- <div v-if="postProp.P_likes" class="spaceNumbers"></div> -->
 
       <div v-if="postProp.P_comments" class="commentNumbers">
         <img
@@ -35,10 +46,17 @@
           src="ICONS/question_answer_white_24dp.svg"
           alt="likes"
         />
-        <h4>{{ postProp.P_comments }} Comment</h4>
-        <h4 v-if="postProp.P_comments > 1">s</h4>
+        <h4>{{ postProp.P_comments }}</h4>
+        <!-- <h4 v-if="postProp.P_comments > 1">s</h4> -->
       </div>
+    <!-- </div> -->
+
+    <div class="addComment">
+      <h2>ADD COMMENT</h2>
     </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -49,6 +67,25 @@
   margin: 3vw;
   border: solid 5px #63b798;
   border-radius: 3px;
+}
+
+.topRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottomRow{
+  display: flex;
+  height: 25px;
+  margin: 0vw 4vw 2vw;
+  justify-content: space-between;
+  align-items: center;
+  /* border: solid 1px blue; */
+}
+
+.deletePost{
+  margin-right: 5vw;
 }
 
 .postUser {
@@ -100,7 +137,8 @@
 .iconNumbers {
   display: flex;
   justify-content: start;
-  margin: 0vw 4vw 4vw;
+  /* margin: 0vw 4vw 4vw; */
+  border: solid 1px red;
 }
 
 .likeNumbers {
@@ -140,6 +178,12 @@ h4 {
   /* margin-right: 5vw; */
 }
 
+h5 {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+}
+
 .likeIcon {
   height: 16px;
   margin-right: 1vw;
@@ -151,7 +195,20 @@ h4 {
 }
 </style>
 
-
+<script>
+export default {
+  methods: {
+    delEmit() {
+      this.$emit("delPostEmit", this.postProp._id);
+    },
+    updateEmit() {
+      this.postProp.P_likes++
+      this.$emit("updPostEmit", this.postProp);
+    },
+  },
+  emits: ["delPostEmit", "updPostEmit"],
+};
+</script>
 
 <script setup>
 import P_Avatar from "./P_Avatar.vue";
