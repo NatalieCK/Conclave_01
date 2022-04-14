@@ -77,6 +77,13 @@ export default {
   // },
     created(){
       this.localUserObj = this.User_Object;
+      console.log(this.localUserObj);
+      let temp = localStorage.getItem('storedUserObj');
+      // this.variable = JSON.parse(temp);
+
+      let parseTemp = JSON.parse(temp);
+      console.log(parseTemp);
+      console.log('hello');
     },
 
   inject: ["User_Object"],

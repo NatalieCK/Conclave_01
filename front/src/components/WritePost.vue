@@ -5,7 +5,7 @@
   <div class="postUser">
 
       <div v-if="localUserObj.U_status == 'Speaker'" class="avatar_speaker">
-        <div class="avatar_inner">{{ postProp.P_initial }}</div>
+        <div class="avatar_inner">{{ localUserObj.U_initial }}</div>
       </div>
 
 <div v-else class="avatar_attendee">

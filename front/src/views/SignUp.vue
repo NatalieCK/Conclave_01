@@ -1,58 +1,71 @@
 <script setup>
 import SignInHeader from "../components/SignInHeader.vue";
-import LogIn from './LogIn.vue';
+import LogIn from "./LogIn.vue";
 import ReturnID from "./ReturnID.vue";
 </script>
 
 <template>
-<div>
-  <SignInHeader />
+  <div>
+    <SignInHeader />
 
-  
-<div class="form_container">
-  <h1 class="sign_in_title">Sign Up</h1>
-  <input type="text" v-model="inputUserData.U_fname" placeholder="First Name" />
-  <input type="text" v-model="inputUserData.U_lname" placeholder="Last Name" />
-  <input type="text" v-model="inputUserData.U_initial" placeholder="Initial" />
-  <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
-  <input type="text" v-model="inputUserData.U_password" placeholder="Password" />
-  <!-- <input type="text" v-model="inputUserData.U_status" placeholder="Status" /> -->
+    <div class="form_container">
+      <h1 class="sign_in_title">Sign Up</h1>
+      <input
+        type="text"
+        v-model="inputUserData.U_fname"
+        placeholder="First Name"
+      />
+      <input
+        type="text"
+        v-model="inputUserData.U_lname"
+        placeholder="Last Name"
+      />
+      <input
+        type="text"
+        v-model="inputUserData.U_initial"
+        placeholder="Initial"
+      />
+      <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
+      <input
+        type="text"
+        v-model="inputUserData.U_password"
+        placeholder="Password"
+      />
+      <!-- <input type="text" v-model="inputUserData.U_status" placeholder="Status" /> -->
 
-  <select name="status" v-model="inputUserData.U_status" >
-    <option value="Attendee">Attendee</option>
-    <option value="Speaker">Speaker</option>
-  </select>
+      <select name="status" v-model="inputUserData.U_status">
+        <option value="Attendee">Attendee</option>
+        <option value="Speaker">Speaker</option>
+      </select>
 
-  <span class="signupbtn"   @click="addUser" >Sign Up</span>
-</div>
+      <span class="signupbtn" @click="addUser">Sign Up</span>
+    </div>
 
-<div :class="{ idhidden : IdDisplay }">
- <p>your user id is as follows:</p> 
-  <p >
-     {{ localUserObj._id }}
-  </p>
-   <p>click <router-link to="/login">HERE</router-link> to login</p>
-   
- </div>
-
+    <div :class="{ idhidden: IdDisplay }">
+      <p>your user id is as follows:</p>
+      <p>
+        {{ localUserObj._id }}
+      </p>
+      <p>click <router-link to="/login">HERE</router-link> to login</p>
+    </div>
   </div>
 </template>
 
 <style>
-*{
-  font-family: 'Inter';
+* {
+  font-family: "Inter";
 }
 .idhidden {
   display: none;
 }
 
-.sign_in_title{
+.sign_in_title {
   align-self: flex-start;
 }
 
 .signupbtn {
   width: 100px;
-  background-color: #63B798;
+  background-color: #63b798;
   color: white;
   padding: 5px 10px;
   border-radius: 50px;
@@ -60,18 +73,18 @@ import ReturnID from "./ReturnID.vue";
   font-weight: 600;
 }
 
-.form_container{
+.form_container {
   margin: 50px 10% 0px 10%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-input[type=text]{
+input[type="text"] {
   width: 100%;
   padding: 5px;
   border: none;
-  border-bottom: 4px solid #9369CE;
+  border-bottom: 4px solid #9369ce;
   background: none;
   display: flex;
   margin: 15px 0px;
@@ -114,6 +127,7 @@ export default {
       });
       const fetchedData = await response.json();
     this.$emit("userDetailsCreated", fetchedData),
+ localStorage.setItem('storedUserObj', JSON.stringify(fetchedData));
     console.log(fetchedData),
     this.IdDisplay = false
        },
