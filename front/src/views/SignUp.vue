@@ -8,6 +8,7 @@ import ReturnID from "./ReturnID.vue";
   <div>
     <SignInHeader />
 
+
     <div class="form_container">
       <h1 class="sign_in_title">Sign Up</h1>
       <input
@@ -52,8 +53,11 @@ import ReturnID from "./ReturnID.vue";
 </template>
 
 <style>
-* {
-  font-family: "Inter";
+
+*{
+  font-family: 'Inter';
+  color: white!important;
+
 }
 .idhidden {
   display: none;
@@ -61,6 +65,7 @@ import ReturnID from "./ReturnID.vue";
 
 .sign_in_title {
   align-self: flex-start;
+  font-weight: 700;
 }
 
 .signupbtn {
@@ -73,7 +78,9 @@ import ReturnID from "./ReturnID.vue";
   font-weight: 600;
 }
 
-.form_container {
+
+.form_container{
+
   margin: 50px 10% 0px 10%;
   display: flex;
   flex-direction: column;
@@ -84,13 +91,28 @@ input[type="text"] {
   width: 100%;
   padding: 5px;
   border: none;
-  border-bottom: 4px solid #9369ce;
+
+  border-bottom: 3px solid #9369CE;
   background: none;
   display: flex;
-  margin: 15px 0px;
+  margin: 10px 0px;
   font-weight: 600;
   font-size: 16px;
+  
 }
+select{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 3px solid #9369CE;
+  background: none;
+  display: flex;
+  margin: 10px 0px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+
 </style>
 
 

@@ -5,19 +5,24 @@ import SignInHeader from "../components/SignInHeader.vue";
 <template>
  <SignInHeader />
 
-  <h1>Conference Code</h1>
+  
 
-<div class="code_box">
+<!-- <div class="code_box">
   <input type="number" id="quantity" name="quantity" min="1" max="9">
   <input type="number" id="quantity" name="quantity" min="1" max="9">
   <input type="number" id="quantity" name="quantity" min="1" max="9">
   <input type="number" id="quantity" name="quantity" min="1" max="9">
   <input type="number" id="quantity" name="quantity" min="1" max="9">
-</div>
+</div> -->
 
 <div class="login_input">
-  <input type="text" name="userid"  placeholder="user id" :value="localUserObj._id" />
-  <input type="text" name="userpass"  placeholder="password" :value="localUserObj.U_password" />
+  <h1 class="login_title">Login to Conclave</h1>
+  <input type="text" name="userid"  placeholder="User ID" :value="localUserObj._id" />
+  <input type="text" name="userpass"  placeholder="Password" :value="localUserObj.U_password" />
+<div class="no_pass">
+  <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
+</div>
+  <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
 </div>
 <!-- <br>
 <p>
@@ -27,9 +32,7 @@ import SignInHeader from "../components/SignInHeader.vue";
 
   <br> -->
 
-<div class="no_pass">
-  <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
-</div>
+
   <!-- <p>
     Injected User_Id (can NOT directly reach .properties via
     User_Object.U_fname) {{ User_Id }}
@@ -39,23 +42,45 @@ import SignInHeader from "../components/SignInHeader.vue";
 <p>Local Variable loaded with injected value, it CAN reach sub properties via localUserObj.U_fname {{localUserObj}}</p>
 <p>working sample fname: {{localUserObj.U_fname}} </p> -->
 
-  <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
+
 </template>
 
 <style>
-
+.login_title{
+  align-self: flex-start;
+  font-weight: 700;
+}
 .login_input {
+  margin: 150px 10% 0px 10%;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 3px solid #9369CE;
+  background: none;
+  display: flex;
+  margin: 10px 0px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .login_btn {
+  margin-top: 25px;
   width: 100px;
+  background-color: #63B798;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50px;
   text-align: center;
-   background-color: #63B798;
-    padding: 10px;
-    border-radius: 30px;
+  font-weight: 600;
+  /* text-decoration: none; */
 }
+
 </style>
 
 <script>
