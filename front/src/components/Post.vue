@@ -57,7 +57,7 @@
 
     </div>
 <div :class="{hidden: ReplyBoxOff}">
-<PostReply @cancelTrigger="cancelPostReply" />
+<PostReply @cancelTrigger="cancelPostReply" :postDataProp="postProp" />
 </div>
   </div>
 </template>
