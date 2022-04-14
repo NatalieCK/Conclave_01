@@ -24,6 +24,8 @@ import SignInHeader from "../components/SignInHeader.vue";
 </div>
   <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
 </div>
+
+<span>{{localUserObj}}</span>
 <!-- <br>
 <p>
     Injected User_Id  {{ localUserObj._id }}
@@ -90,22 +92,22 @@ export default {
       //  userData: {
     
       // }
-        // localUserObj:{}
+        localUserObj:{}
     };
   },
-  // methods: {
-  //   async getUser(userID) {
-  //     const response = await fetch("http://localhost:4000/users/get/" + userID);
-  //     const fetchedData = await response.json();
-  //     this.userData = fetchedData;
-  //   },
-  // },
+  methods: {
+    async getUser() {
+      const response = await fetch("http://localhost:4000/users/get/" + this.storedUserObj._id);
+      const fetchedData = await response.json();
+      this.localUserObj = fetchedData;
+    },
+  },
     created(){
       // this.localUserObj = this.User_Object;
       // console.log(this.localUserObj);
       let temp = localStorage.getItem('storedUserObj');
        this.storedUserObj = JSON.parse(temp);
-
+      this.getUser();
       // let userData = JSON.parse(temp);
       // console.log('this'+userData.U_fname);
       // console.log('hello');
