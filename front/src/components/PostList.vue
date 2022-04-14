@@ -15,16 +15,6 @@ export default {
   data() {
     return {
       postsData: [],
-      inputPostData: {
-        P_userID: "",
-        P_fname: "",
-        P_lname: "",
-        P_initial: "",
-        P_status: "",
-        P_content: "",
-        P_likes: "",
-        P_comments: "",
-      },
     };
   },
   methods: {
@@ -48,10 +38,6 @@ export default {
       });
       const fetchedData = await response.json();
       this.fetchAPI();
-    },
-    addLike(postID){
-      // this.inputPostData.P_likes++;
-      this.updatePost(postID);
     }
   },
   created() {

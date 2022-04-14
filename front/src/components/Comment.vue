@@ -19,18 +19,18 @@
       </div>
     </div>
 
-<div @click="delEmit" class="deleteComment">
+<div @click="delCommentEmit" class="deleteComment">
 <h5>x</h5>
 </div>
     </div>
 
-    <div class="postText">
+    <div class="commentText">
       <h3>{{ commentProp.C_content }}</h3>
     </div>
 
 <div class="bottomRow">
 
-      <div @click="updateEmit" class="likeNumbers">
+      <div @click="likeCommentEmit" class="likeNumbers">
         <img class="likeIcon" src="ICONS/thumb_up_white_24dp.svg" alt="likes" />
         <h4 v-if="commentProp.C_likes" >{{ commentProp.C_likes }}</h4>
       </div>
@@ -110,7 +110,7 @@
   margin-left: 2vw;
 }
 
-.postText {
+.commentText {
   margin: 2vw 2vw 3vw 4vw;
 }
 
@@ -161,10 +161,10 @@ h5 {
 <script>
 export default {
   methods: {
-    delEmit() {
+    delCommentEmit() {
       this.$emit("delCommentEmit", this.commentProp._id);
     },
-    updateEmit() {
+    likeCommentEmit() {
       this.commentProp.C_likes++
       this.$emit("updCommentEmit", this.commentProp);
     }
