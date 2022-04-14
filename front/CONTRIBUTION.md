@@ -40,7 +40,7 @@ Tried alternative method suggested for injecting information suggested, but wasn
 
 14/4 NATALIE - Worked on styling for earlier pages and troubleshooted the 'aboutconclave' page with Joy (modal display). Making provide/ inject functional on writepost. 
 Discussing home page post and comments functionality, brainstorming this functionality with team. Got feedback from tutor also. Tom to develop. 
-Identified potential issies with provide/ inject that other teams were having. Working on local storage alternative in case of error. 
+Identified potential issies with provide/ inject that other teams were having. Working on local storage alternative in case of error. Successfully resolved & functional with local storage of user data on login, signup and writepost. 
 
 
 
