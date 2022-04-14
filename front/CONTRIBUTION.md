@@ -39,5 +39,17 @@ hello world from joeio
 Tried alternative method suggested for injecting information suggested, but wasn't successful so went back to method developed Tuesday. Managed to get feedback of user data on signup and login functional using inject. Communicated with Joy who was managing the styling of these pages, working closely to make sure our changes and merges were aligning. 
 
 
+JOE D
+5/4 Vue and git study. 
+
+6/4 Built avatar prototype code and tested branch merging w Tom, struggled with github and committing node module changes to the main branch.
+
+7/4 Built dropdown prototype code with vue. Contributed to discussions on schema structures. 
+
+8/4 Unwell with headache. 
+
+10/4 Vue and javascript study.
+
+11/4 
 
 
