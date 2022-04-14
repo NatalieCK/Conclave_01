@@ -35,7 +35,7 @@
     position: fixed;
     text-align: center;
     top: 0;
-    height: 100vw;
+    height: 100vh;
     width: 100vw;
     background-color: #111127 ;
     z-index: 10;
