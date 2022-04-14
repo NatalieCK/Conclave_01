@@ -51,12 +51,14 @@
       </div>
     <!-- </div> -->
 
-    <div class="addComment">
+    <div @click="showPostReply" class="addComment">
       <h2>ADD COMMENT</h2>
     </div>
 
     </div>
-
+<div :class="{hidden: ReplyBoxOff}">
+<PostReply @cancelTrigger="cancelPostReply" />
+</div>
   </div>
 </template>
 
@@ -197,6 +199,11 @@ h5 {
 
 <script>
 export default {
+data() {
+    return { 
+      ReplyBoxOff: true,
+    };
+  },
   methods: {
     delEmit() {
       this.$emit("delPostEmit", this.postProp._id);
@@ -205,6 +212,12 @@ export default {
       this.postProp.P_likes++
       this.$emit("updPostEmit", this.postProp);
     },
+    showPostReply(){
+this.ReplyBoxOff=false;
+    },
+    cancelPostReply(){
+this.ReplyBoxOff=true;
+    }
   },
   emits: ["delPostEmit", "updPostEmit"],
 };
@@ -212,6 +225,7 @@ export default {
 
 <script setup>
 import P_Avatar from "./P_Avatar.vue";
+import PostReply from "./PostReply.vue"
 
 defineProps({
   postProp: {
