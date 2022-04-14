@@ -16,7 +16,12 @@ import ReturnID from "./ReturnID.vue";
   <input type="text" v-model="inputUserData.U_initial" placeholder="Initial" />
   <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
   <input type="text" v-model="inputUserData.U_password" placeholder="Password" />
-  <input type="text" v-model="inputUserData.U_status" placeholder="Status" />
+  <!-- <input type="text" v-model="inputUserData.U_status" placeholder="Status" /> -->
+
+  <select name="status" v-model="inputUserData.U_status" >
+    <option value="Attendee">Attendee</option>
+    <option value="Speaker">Speaker</option>
+  </select>
 
   <span class="signupbtn"   @click="addUser" >Sign Up</span>
 </div>
