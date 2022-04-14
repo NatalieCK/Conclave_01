@@ -59,13 +59,18 @@
 <div :class="{hidden: ReplyBoxOff}">
 <PostReply @cancelTrigger="cancelPostReply" :postDataProp="postProp" />
 </div>
+
+<div v-if="postProp.P_postComments[0]" >
+<Comment />
+</div>
+
   </div>
 </template>
 
 <style scoped>
 .postBox {
   position: relative;
-  top: 175px;
+  top: 185px;
   margin: 3vw;
   border: solid 5px #63b798;
   border-radius: 3px;
@@ -224,7 +229,7 @@ this.ReplyBoxOff=true;
 </script>
 
 <script setup>
-import P_Avatar from "./P_Avatar.vue";
+import Comment from "./Comment.vue";
 import PostReply from "./PostReply.vue"
 
 defineProps({

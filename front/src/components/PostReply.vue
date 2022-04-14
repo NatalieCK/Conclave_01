@@ -178,11 +178,11 @@ export default {
       const fetchedData = await response.json();
       this.userData = fetchedData;
     },
-    async addComment(inputPostData) {
+    async addComment(inputCommentData) {
       const response = await fetch("http://localhost:4000/comments/addcomment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(inputPostData),
+        body: JSON.stringify(inputCommentData),
       });
 
     //   this.$emit("CommentListTrigger");
@@ -209,7 +209,11 @@ export default {
       this.commentData.C_initial = this.userData.U_initial;
       this.commentData.C_status = this.userData.U_status;
       this.addComment(this.commentData);
-      console.log(this.commentData);
+
+    //   this.postDataProp.P_postComments.push(this.commentData._id);
+    //   console.log(this.postDataProp.P_postComments[0]);
+    
+
     },
     cancelComment(){
         this.commentData.C_content="";
