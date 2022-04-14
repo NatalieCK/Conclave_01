@@ -226,16 +226,17 @@ export default {
   created() {
     // const currentUserID = "62550ea9903b5e4fb166f9cb";
     // this.getUser(currentUserID);
-    this.localUserObj = this.User_Object;
+    // this.localUserObj = this.User_Object;
 
-//      let temp = localStorage.getItem('storedUserObj');
-//        this.storedUserObj = JSON.parse(temp);
+     let temp = localStorage.getItem('storedUserObj');
+       this.storedUserObj = JSON.parse(temp);
+       this.localUserObj = this.storedUserObj;
 
 // const currentUserID = storedUserObj._id;
 
        
   },
-  inject: ["User_Object"],
+  // inject: ["User_Object"],
   emits: ["PostListTrigger"]
 };
 </script>
