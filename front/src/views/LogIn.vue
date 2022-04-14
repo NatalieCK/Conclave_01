@@ -5,16 +5,6 @@ import SignInHeader from "../components/SignInHeader.vue";
 <template>
  <SignInHeader />
 
-  
-
-<!-- <div class="code_box">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-</div> -->
-
 <div class="login_input">
   <h1 class="login_title">Login to Conclave</h1>
   <input type="text" name="userid"  placeholder="User ID" :value="localUserObj._id" />
@@ -24,23 +14,7 @@ import SignInHeader from "../components/SignInHeader.vue";
 </div>
   <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
 </div>
-<!-- <br>
-<p>
-    Injected User_Id  {{ localUserObj._id }}
-  </p>
-  <p>Injected User Password {{localUserObj.U_password}}</p>
 
-  <br> -->
-
-
-  <!-- <p>
-    Injected User_Id (can NOT directly reach .properties via
-    User_Object.U_fname) {{ User_Id }}
-  </p> -->
-  <!-- <p>broken sample fname: {{User_Object.U_fname}} </p>
-<br>
-<p>Local Variable loaded with injected value, it CAN reach sub properties via localUserObj.U_fname {{localUserObj}}</p>
-<p>working sample fname: {{localUserObj.U_fname}} </p> -->
 
 
 </template>
@@ -78,7 +52,6 @@ input[type=text]{
   border-radius: 50px;
   text-align: center;
   font-weight: 600;
-  /* text-decoration: none; */
 }
 
 </style>
@@ -87,31 +60,23 @@ input[type=text]{
 export default {
   data() {
     return {
-      //  userData: {
-    
-      // }
         localUserObj:{}
     };
   },
-  // methods: {
-  //   async getUser(userID) {
-  //     const response = await fetch("http://localhost:4000/users/get/" + userID);
-  //     const fetchedData = await response.json();
-  //     this.userData = fetchedData;
-  //   },
-  // },
-    created(){
-      this.localUserObj = this.User_Object;
-      console.log(this.localUserObj);
-      let temp = localStorage.getItem('storedUserObj');
-      // this.variable = JSON.parse(temp);
-
-      let parseTemp = JSON.parse(temp);
-      console.log(parseTemp);
-      console.log('hello');
+  methods: {
+    async getUser() {
+      const response = await fetch("http://localhost:4000/users/get/" + this.storedUserObj._id);
+      const fetchedData = await response.json();
+      this.localUserObj = fetchedData;
     },
+  },
+    created(){
+     
+      let temp = localStorage.getItem('storedUserObj');
+       this.storedUserObj = JSON.parse(temp);
+      this.getUser();
 
-  inject: ["User_Object"],
+    },
   
 };
 </script>

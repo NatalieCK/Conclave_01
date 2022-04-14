@@ -27,7 +27,7 @@ export default {
   data() {
     return {
 
-      modal: true,
+      modal: false,
         localUser: {
         U_fname: "",
         U_lname: "",
