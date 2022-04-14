@@ -17,8 +17,8 @@ import SignInHeader from "../components/SignInHeader.vue";
 
 <div class="login_input">
   <h1 class="login_title">Login to Conclave</h1>
-  <input type="text" name="userid"  placeholder="User ID" :value="localUserObj._id" />
-  <input type="text" name="userpass"  placeholder="Password" :value="localUserObj.U_password" />
+  <input type="text" name="userid"  placeholder="User ID" :value="storedUserObj._id" />
+  <input type="text" name="userpass"  placeholder="Password" :value="storedUserObj.U_password" />
 <div class="no_pass">
   <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
 </div>
@@ -90,7 +90,7 @@ export default {
       //  userData: {
     
       // }
-        localUserObj:{}
+        // localUserObj:{}
     };
   },
   // methods: {
@@ -101,17 +101,17 @@ export default {
   //   },
   // },
     created(){
-      this.localUserObj = this.User_Object;
-      console.log(this.localUserObj);
+      // this.localUserObj = this.User_Object;
+      // console.log(this.localUserObj);
       let temp = localStorage.getItem('storedUserObj');
-      // this.variable = JSON.parse(temp);
+       this.storedUserObj = JSON.parse(temp);
 
-      let parseTemp = JSON.parse(temp);
-      console.log(parseTemp);
-      console.log('hello');
+      // let userData = JSON.parse(temp);
+      // console.log('this'+userData.U_fname);
+      // console.log('hello');
     },
 
-  inject: ["User_Object"],
+  // inject: ["User_Object"],
   
 };
 </script>

@@ -45,7 +45,7 @@ import ReturnID from "./ReturnID.vue";
     <div :class="{ idhidden: IdDisplay }">
       <p>your user id is as follows:</p>
       <p>
-        {{ localUserObj._id }}
+        {{ storedUserObj._id }}
       </p>
       <p>click <router-link to="/login">HERE</router-link> to login</p>
     </div>
@@ -121,7 +121,7 @@ export default {
   components: { LogIn },
   data() {
     return {
-      localUserObj:{},
+      // localUserObj:{},
       IdDisplay: true,
       usersData: [],
       inputUserData: {
@@ -171,10 +171,13 @@ export default {
     },
   },
 created() {
-  this.localUserObj = this.User_Object;
+  // this.localUserObj = this.User_Object;
+
+  let temp = localStorage.getItem('storedUserObj');
+       this.storedUserObj = JSON.parse(temp);
   },
 
-   inject: ["User_Object"],
+  //  inject: ["User_Object"],
   
   emits:["userDetailsCreated"]
 };

@@ -159,7 +159,15 @@ export default {
       //   U_status: "",
       //   U_logIn: "",
       // },
-      localUserObj:{},
+      localUserObj:{
+        U_fname: "",
+        U_lname: "",
+        U_initial: "",
+        U_email: "",
+        U_password: "",
+        U_status: "",
+        U_logIn: "",
+      },
       postData: {
         P_userID: "",
         P_fname: "",
@@ -175,10 +183,12 @@ export default {
   },
   methods: {
     // async getUser(userID) {
-    //   const response = await fetch("http://localhost:4000/users/get/" + userID);
+    //   const response = await fetch("http://localhost:4000/users/get/" + storedUserObj._id);
     //   const fetchedData = await response.json();
-    //   this.userData = fetchedData;
+    //   this.localUserObj = fetchedData;
+    //   console.log(fetchedData)
     // },
+    
     async addPost(inputPostData) {
       const response = await fetch("http://localhost:4000/posts/addpost", {
         method: "POST",
@@ -217,6 +227,13 @@ export default {
     // const currentUserID = "62550ea9903b5e4fb166f9cb";
     // this.getUser(currentUserID);
     this.localUserObj = this.User_Object;
+
+//      let temp = localStorage.getItem('storedUserObj');
+//        this.storedUserObj = JSON.parse(temp);
+
+// const currentUserID = storedUserObj._id;
+
+       
   },
   inject: ["User_Object"],
   emits: ["PostListTrigger"]
