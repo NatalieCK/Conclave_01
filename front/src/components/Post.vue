@@ -1,5 +1,5 @@
 <template>
-  <div class="postBox">
+  <div class="postBox" id="postbox">
 
     <div class="topRow">
 
@@ -76,7 +76,7 @@ v-for="commentID in postProp.P_postComments"
 <style scoped>
 .postBox {
   position: relative;
-  top: 185px;
+  top: 245px;
   margin: 3vw;
   border: solid 5px #63b798;
   border-radius: 3px;

@@ -5,47 +5,26 @@ import SignInHeader from "../components/SignInHeader.vue";
 <template>
  <SignInHeader />
 
-  
-
-<!-- <div class="code_box">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-  <input type="number" id="quantity" name="quantity" min="1" max="9">
-</div> -->
-
 <div class="login_input">
   <h1 class="login_title">Login to Conclave</h1>
-  <input type="text" name="userid"  placeholder="User ID" :value="localUserObj._id" />
-  <input type="text" name="userpass"  placeholder="Password" :value="localUserObj.U_password" />
+  <input type="text" name="userid"  placeholder="User ID" v-model="localUserObj._id" />
+  <input type="text" name="userpass"  placeholder="Password" v-model="localUserObj.U_password" />
+  <p v-if="wrongPassword" class="red">* Wrong Password</p>
 <div class="no_pass">
   <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
 </div>
-  <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
+  <div class="login_btn" @click="loginFunc">LOGIN</div>
 </div>
-<!-- <br>
-<p>
-    Injected User_Id  {{ localUserObj._id }}
-  </p>
-  <p>Injected User Password {{localUserObj.U_password}}</p>
 
-  <br> -->
-
-
-  <!-- <p>
-    Injected User_Id (can NOT directly reach .properties via
-    User_Object.U_fname) {{ User_Id }}
-  </p> -->
-  <!-- <p>broken sample fname: {{User_Object.U_fname}} </p>
-<br>
-<p>Local Variable loaded with injected value, it CAN reach sub properties via localUserObj.U_fname {{localUserObj}}</p>
-<p>working sample fname: {{localUserObj.U_fname}} </p> -->
 
 
 </template>
 
 <style>
+.red{
+  color: red !important;
+  font-weight: bold;
+}
 .login_title{
   align-self: flex-start;
   font-weight: 700;
@@ -78,7 +57,6 @@ input[type=text]{
   border-radius: 50px;
   text-align: center;
   font-weight: 600;
-  /* text-decoration: none; */
 }
 
 </style>
@@ -87,24 +65,36 @@ input[type=text]{
 export default {
   data() {
     return {
-      //  userData: {
-    
-      // }
-        localUserObj:{}
+        wrongPassword:false,
+        localUserObj:{
+          _id:'',
+          password:''
+        }
     };
   },
-  // methods: {
-  //   async getUser(userID) {
-  //     const response = await fetch("http://localhost:4000/users/get/" + userID);
-  //     const fetchedData = await response.json();
-  //     this.userData = fetchedData;
-  //   },
-  // },
-    created(){
-      this.localUserObj = this.User_Object;
-    },
+  methods: {
+    async loginFunc() {
+      const response = await fetch("http://localhost:4000/users/get/" + this.localUserObj._id);
+      const fetchedData = await response.json();
 
-  inject: ["User_Object"],
+      if(fetchedData.U_password == this.localUserObj.U_password)
+        {
+          localStorage.setItem('storedUserObj', JSON.stringify(fetchedData));
+          this.$router.push('/');
+        }
+      else
+        this.wrongPassword = true;
+    },
+  },
+    created(){
+     
+      let temp = localStorage.getItem('storedUserObj');
+      this.storedUserObj = JSON.parse(temp);
+
+      if(this.storedUserObj)
+        this.localUserObj = this.storedUserObj;
+
+    },
   
 };
 </script>

@@ -1,19 +1,22 @@
 
 <template>
-  
-  <div class="writeBox">
-    <div class="postUser">
-      <div v-if="userData.U_status == 'Speaker'" class="avatar_speaker">
-        <div class="avatar_inner">{{ userData.U_initial }}</div>
+
+<!-- <div class="postBack"> -->
+<div class="writeBox">
+  <div class="postUser">
+
+      <div v-if="localUserObj.U_status == 'Speaker'" class="avatar_speaker">
+        <div class="avatar_inner">{{ localUserObj.U_initial }}</div>
       </div>
 
-      <div v-else class="avatar_attendee">
-        <div class="avatar_inner">{{ userData.U_initial }}</div>
+<div v-else class="avatar_attendee">
+        <div class="avatar_inner">{{ localUserObj.U_initial }}</div>
+
       </div>
 
       <div class="userInfo">
-        <h1>{{ userData.U_fname }} {{ userData.U_lname }}</h1>
-        <h2>{{ userData.U_status }}</h2>
+        <h1>{{ localUserObj.U_fname }} {{ localUserObj.U_lname }}</h1>
+        <h2>{{ localUserObj.U_status }}</h2>
       </div>
     </div>
 
@@ -151,14 +154,8 @@ textarea::placeholder {
 export default {
   data() {
     return {
-      userData: {
-        U_fname: "",
-        U_lname: "",
-        U_initial: "",
-        U_email: "",
-        U_password: "",
-        U_status: "",
-        U_logIn: "",
+      localUserObj: {
+     
       },
       commentData: {
         C_postID: "",
@@ -173,10 +170,10 @@ export default {
     };
   },
   methods: {
-    async getUser(userID) {
-      const response = await fetch("http://localhost:4000/users/get/" + userID);
+   async getUser() {
+      const response = await fetch("http://localhost:4000/users/get/" + this.storedUserObj._id);
       const fetchedData = await response.json();
-      this.userData = fetchedData;
+      this.localUserObj = fetchedData;
     },
     async addComment(inputCommentData) {
       const response = await fetch("http://localhost:4000/comments/addcomment", {
@@ -212,23 +209,26 @@ export default {
       if (this.commentData.C_content == "") {
         console.log("no content");
         return;
+
       }
       this.commentData.C_postID = this.postDataProp._id
-      this.commentData.C_userID = this.userData._id;
-      this.commentData.C_fname = this.userData.U_fname;
-      this.commentData.C_lname = this.userData.U_lname;
-      this.commentData.C_initial = this.userData.U_initial;
-      this.commentData.C_status = this.userData.U_status;
+      this.commentData.C_userID = this.localUserObj._id;
+      this.commentData.C_fname = this.localUserObj.U_fname;
+      this.commentData.C_lname = this.localUserObj.U_lname;
+      this.commentData.C_initial = this.localUserObj.U_initial;
+      this.commentData.C_status = this.localUserObj.U_status;
       this.addComment(this.commentData);
     },
     cancelComment(){
         this.commentData.C_content="";
         this.$emit('cancelTrigger');
+
     }
   },
   created() {
-    const currentUserID = "62550ea9903b5e4fb166f9cb";
-    this.getUser(currentUserID);
+    let temp = localStorage.getItem('storedUserObj');
+       this.storedUserObj = JSON.parse(temp);
+       this.getUser();
   },
   emits: ["PostListTrigger", "cancelTrigger"],
 };

@@ -32,12 +32,36 @@ hello world from joeio
 
 11/4 NATALIE - Collaboratively troubleshooting github/ folder issues and tidied up the folder structure via videocall. Troubleshooted & resolved github issues with tutor. Main issue was git ignore not functioning, related to earlier issues. I deleted all the node mudles on my end then merged again. At this point, we made sure git ignore was functioning (which it was). All further node modules installed where therefor ignored and the issue fully resolved
 
-12/4 NAT - Started to develop funtionality on earlier pages. Got advice on tutor on how to implement provide/ inject, extracting user data from the sign up form and providing it to the parent 'app.vue', so that it could be injected into child and grandchild pages. Began work connecting all pages via router view. In both actions, working to achieve base functionality on assigned pages of 'welcome', 'signup' and 'login'
+12/4 NATALIE - Started to develop funtionality on earlier pages. Got advice on tutor on how to implement provide/ inject, extracting user data from the sign up form and providing it to the parent 'app.vue', so that it could be injected into child and grandchild pages. Began work connecting all pages via router view. In both actions, working to achieve base functionality on assigned pages of 'welcome', 'signup' and 'login'
 
 
-13/4 NAT - continued working towards linking pages via router view. Tom had already developed the index.js, so I discussed and developed this collaboratively with him. Had some issues with the 'welcome' modal becoming hidden, but troubleshooted with the group. Router view was functional. 
+13/4 NATALIE - continued working towards linking pages via router view. Tom had already developed the index.js, so I discussed and developed this collaboratively with him. Had some issues with the 'welcome' modal becoming hidden, but troubleshooted with the group. Router view was functional. 
 Tried alternative method suggested for injecting information suggested, but wasn't successful so went back to method developed Tuesday. Managed to get feedback of user data on signup and login functional using inject. Communicated with Joy who was managing the styling of these pages, working closely to make sure our changes and merges were aligning. 
 
+14/4 NATALIE - Worked on styling for earlier pages and troubleshooted the 'aboutconclave' page with Joy (modal display). Making provide/ inject functional on writepost. 
+Discussing home page post and comments functionality, brainstorming this functionality with team. Got feedback from tutor also. Tom to develop. 
+Identified potential issies with provide/ inject that other teams were having. Working on local storage alternative in case of error. Successfully resolved & functional with local storage of user data on login, signup and writepost. 
 
 
+JOE D
+2022-04-05 Vue and git study. 
+
+2022-04-06 Built avatar prototype code and tested branch merging w Tom, struggled with github and committing node module changes to the main branch.
+
+2022-04-07 Built dropdown prototype code with vue. Contributed to discussions on schema structures, studied component hierachy. 
+
+2022-04-08 Unwell with headache. 
+
+2022-04-10 Vue and javascript study.
+
+2022-04-11 Collaborative group meeting and discussions re updating backend and rebuilding front end structures. Tom to progress. Build U_avatar, P_avatar and C_avatar - to be linked to database. Sketched a design for WritePost that was subsequently discarded due to Tom progressing that area of the home.vue. 
+Intention - continue filling in the gaps and styling components. 
+
+2022-04-12 Updated user, comment and post models according to group revisions. Merged avatars and styled homeNav, fullNav and dropdown from burger menu using toggle system. 
+Intention - piece together greater understanding of front back end connection in order to better contribute. 
+
+2022-04-13 Collaborative group discussion re critical coding phase of project. Nat and Tom taking leadership roles in major project components while Joy and I lead styling. Touched up full article nav bar after group discussions, designed and scripted a widemode component. Need to see Toms post structure to understand implementation of wide mode and full article structure. 
+Intention - wait for Tom to complete key work before progressing. 
+
+2022-04-14 Documentation day. Intention - touch up my components and there relationship to the total app tomorrow once Tom and Nat have done the bulk of their work and they commence on documentation. 
 

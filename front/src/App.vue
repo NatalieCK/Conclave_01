@@ -7,7 +7,7 @@
       <Welcome @closemodal="modal=true" />
     </div>
 
-    <router-view @userDetailsCreated="myDetails"></router-view>
+    <router-view @userDetailsCreated="myDetails" v-if="modal"></router-view>
 
 </div>
 
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
 
-      modal: true,
+      modal: false,
         localUser: {
         U_fname: "",
         U_lname: "",
