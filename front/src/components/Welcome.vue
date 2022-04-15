@@ -1,30 +1,17 @@
-<script setup>
-// import Something from '../components'
-
-</script>
-
 <template>
 
 <div class="welcome_page">
-
-
-<div class="logo">
-<img src="../assets/LOGO(1).png" alt="Conclave Logo">
-</div>
-
-<div class="welcome_div">
-    <h1 >Welcome to Conclave!</h1>
-</div>
-
-<div class="welcome_options">
-
+    <div class="logo">
+        <img src="../assets/LOGO(1).png" alt="Conclave Logo">
+    </div>
+    <div class="welcome_div">
+        <h1 >Welcome to Conclave!</h1>
+    </div>
+    <div class="welcome_options">
     <div class="welcome_btns" @click="$emit('closemodal')"><router-link to="/login">Log In</router-link></div>
-
-    <p>or</p>
- 
+        <p>or</p>
     <div class="welcome_btns" @click="$emit('closemodal')" ><router-link to="/signup">Sign Up</router-link></div>
-
-</div>
+    </div>
 </div>
 
 </template>

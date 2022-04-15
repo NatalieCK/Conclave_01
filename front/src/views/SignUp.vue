@@ -55,8 +55,8 @@ import ReturnID from "./ReturnID.vue";
 }
 
 .userid_display {
-text-align: center;
-margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 .idhidden {
   display: none;
