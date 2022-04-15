@@ -1,6 +1,6 @@
 
 <template>
-<div class="postBack" id="post">
+<div class="postBack" >
 <div class="writeBox">
   <div class="postUser">
 

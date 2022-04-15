@@ -3,7 +3,7 @@
 <div class="header_flex_home">
 <img class="home_logo" src="../assets/LOGO(1).png" alt="Conclave Logo">
 <div class="home_center_container">
-<h3 class="home_ConferenceRMtitle" id="headnav">Conference Rooms</h3>
+<h3 class="home_ConferenceRMtitle" >Conference Rooms</h3>
 </div>
 
 <!-- <div class="home_nav_container">
@@ -19,9 +19,10 @@
             <div @click="display_func" class="dropdown_text_container" id="display_mode" >
                 <div class="dropdown_text">display mode</div>
             </div>
-            <div class="dropdown_text_container" id="log_out">
+            <!-- <div class="dropdown_text_container" id="log_out">
                 <a href="" style="text-decoration: none"><div class="dropdown_text">log out</div></a>
-            </div>
+            </div> -->
+            <div class="dropdown_text_container">log out</div>
 
         </div>
     </div>
@@ -136,43 +137,43 @@ export default {
                   _07.style.display = "none";
                              }
 
-  },
-  nav_off() {
+//   },
+//   nav_off() {
 
-      document.getElementById('dropdown_01').style.display = 'none';
-  },
+//       document.getElementById('dropdown_01').style.display = 'none';
+//   },
 
-  display_func () {
-      let postbox = document.getElementById('postbox');
-      let post = document.getElementById('post');
-      let headnav = document.getElementById('headnav');
+//   display_func () {
+//       let postbox = document.getElementById('postbox');
+//       let post = document.getElementById('post');
+//       let headnav = document.getElementById('headnav');
 
-            if 
-                (post.style.display === "none") 
-                        { post.style.display = "flex";} 
-            else 
-                        { post.style.display = "none"; }
+//             if 
+//                 (post.style.display === "none") 
+//                         { post.style.display = "flex";} 
+//             else 
+//                         { post.style.display = "none"; }
 
-            if 
-                (headnav.innerHTML === "Conference Rooms") 
-                    { headnav.innerHTML = "Display Mode"; }  
-            else 
-                    { headnav.innerHTML= "Conference Rooms";}
+//             if 
+//                 (headnav.innerHTML === "Conference Rooms") 
+//                     { headnav.innerHTML = "Display Mode"; }  
+//             else 
+//                     { headnav.innerHTML= "Conference Rooms";}
 
 
-            if 
-                (postbox.style.top === "80px") 
-                { postbox.style.top = "245px";} 
+//             if 
+//                 (postbox.style.top === "80px") 
+//                 { postbox.style.top = "245px";} 
 
-                else 
-                { postbox.style.top = "80px";}
+//                 else 
+//                 { postbox.style.top = "80px";}
 
-  },
+//   },
 
   }
 
 
 }
 
-
+}
 </script>
