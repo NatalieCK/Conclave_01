@@ -18,11 +18,6 @@ import ReturnID from "./ReturnID.vue";
         v-model="inputUserData.U_lname"
         placeholder="Last Name"
       />
-      <!-- <input
-        type="text"
-        v-model="inputUserData.U_initial"
-        placeholder="Initial"
-      /> -->
       <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
       <input
         type="text"
