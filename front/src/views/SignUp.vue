@@ -30,17 +30,19 @@ import ReturnID from "./ReturnID.vue";
       </select>
       <span class="signupbtn" @click="addUser">Sign Up</span>
     </div>
+    
     <div :class="{ idhidden: IdDisplay }">
       <div class="userid_display">
       <p>Your USER ID is as follows:</p>
       <p>
-        {{ localUserObj._id }}
+        {{ localUserID }}
       </p>
       <p>Click <router-link to="/login">HERE</router-link> to login.</p>
       </div>
     </div>
   </div>
 </template>
+
 <style>
 *{
   font-family: 'Inter';
@@ -102,7 +104,7 @@ export default {
   components: { LogIn },
   data() {
     return {
-      localUserObj:{},
+      localUserID:'',
       IdDisplay: true,
       usersData: [],
       inputUserData: {
@@ -133,6 +135,7 @@ export default {
     this.$emit("userDetailsCreated", fetchedData),
  localStorage.setItem('storedUserObj', JSON.stringify(fetchedData));
     console.log(fetchedData),
+    this.localUserID = fetchedData._id;
     this.IdDisplay = false
        },
     async delUser(userID) {
@@ -153,11 +156,7 @@ export default {
     },
   },
 created() {
-     // Below is the method we would use for provide/ inject (currently undergoing updates, not reliable)
-  // this.localUserObj = this.User_Object;
-  let temp = localStorage.getItem('storedUserObj');
-       this.storedUserObj = JSON.parse(temp);
-      this.localUserObj = this.storedUserObj;
+
   },
    // Below is the method we would use for provide/ inject (currently undergoing updates, not reliable)
   //  inject: ["User_Object"],
