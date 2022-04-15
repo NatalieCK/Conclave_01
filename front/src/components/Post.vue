@@ -240,6 +240,13 @@ this.ReplyBoxOff=true;
       const response = await fetch(fetchURL, { method: "DELETE" });
       const fetchedData = await response.json();
       this.fetchAPI();
+      const arrayValue=this.postProp.P_postComments.indexOf(commentID);
+      console.log(arrayValue);
+      const postPropData=this.postProp;
+      console.log(postPropData.P_postComments);
+      postPropData.P_postComments.splice(arrayValue,1);
+      console.log(postPropData.P_postComments);
+      this.updatePost(postPropData);
     },
     async updateComment(commentData) {
       const fetchURL = "http://localhost:4000/comments/update/" + commentData._id;
@@ -247,6 +254,16 @@ this.ReplyBoxOff=true;
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(commentData),
+      });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+    },
+    async updatePost(postData) {
+      const fetchURL = "http://localhost:4000/posts/update/" + postData._id;
+      const response = await fetch(fetchURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postData),
       });
       const fetchedData = await response.json();
       this.fetchAPI();
