@@ -37,7 +37,7 @@ import ReturnID from "./ReturnID.vue";
       <p>
         {{ localUserID }}
       </p>
-      <p>Click <router-link to="/login">HERE</router-link> to login.</p>
+      <p>Click <router-link class="here_btn" to="/login">HERE</router-link> to login.</p>
       </div>
     </div>
   </div>
@@ -47,6 +47,11 @@ import ReturnID from "./ReturnID.vue";
 *{
   font-family: 'Inter';
   color: white!important;
+}
+
+.here_btn {
+  font-weight: 600 !important;
+  color:#9369CE !important ;
 }
 
 .userid_display {
@@ -86,7 +91,7 @@ input[type="text"] {
   font-weight: 600;
   font-size: 16px;
 }
-select{
+select[name="status"]{
   width: 100%;
   padding: 10px;
   border: none;
@@ -96,7 +101,7 @@ select{
   margin: 10px 0px;
   font-weight: 600;
   font-size: 16px;
-  color: white;
+  color: #111127;
 }
 </style>
 <script>
@@ -125,7 +130,7 @@ export default {
       this.usersData = fetchedData;
     },
     async addUser() {
-      this.inputUserData.U_initial= this.inputUserData.U_fname[0]+this.inputUserData.U_lname[0];
+      this.inputUserData.U_initial= this.inputUserData.U_fname[0];
       const response = await fetch("http://localhost:4000/users/adduser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
