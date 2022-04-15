@@ -113,7 +113,7 @@
     font-family: 'Inter';
     color: white;
     font-size: 18px;
-    font-weight: lighter;
+
 }
 </style>
 
@@ -161,11 +161,11 @@ export default {
 
 
             if 
-                (postbox.style.top === "65px") 
+                (postbox.style.top === "80px") 
                 { postbox.style.top = "245px";} 
 
                 else 
-                { postbox.style.top = "65px";}
+                { postbox.style.top = "80px";}
 
   },
 
