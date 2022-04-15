@@ -42,7 +42,7 @@ Tried alternative method suggested for injecting information suggested, but wasn
 Discussing home page post and comments functionality, brainstorming this functionality with team. Got feedback from tutor also. Tom to develop. 
 Identified potential issies with provide/ inject that other teams were having. Working on local storage alternative in case of error. Successfully resolved & functional with local storage of user data on login, signup and writepost. 
 
-
+15/4 NATALIE - Am resolved localstorage method. Discussed comment method with Tom- he went off to resolve. Brainstormed display methods for 'display mode' toggle with Joe and Joy. When Joe merged issues with the localStorage emerged. Troubleshooted with tutor. Final styling and merges with tom, and the app was resolved. 
 JOE D
 2022-04-05 Vue and git study. 
 
