@@ -65,6 +65,8 @@
 v-for="commentID in postProp.P_postComments"
 :key="commentID"
 :commentID="commentID"
+@delCommentEmit="delComment"
+@updCommentEmit="updateComment"
 />
 </div>
 
