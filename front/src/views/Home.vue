@@ -22,6 +22,4 @@ import HomeNav from '../components/HomeNav.vue';
 
 <style>
 
-
-
 </style>

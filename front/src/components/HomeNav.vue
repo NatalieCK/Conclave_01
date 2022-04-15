@@ -3,7 +3,7 @@
 <div class="header_flex_home">
 <img class="home_logo" src="../assets/LOGO(1).png" alt="Conclave Logo">
 <div class="home_center_container">
-<h3 class="home_ConferenceRMtitle" id="headnav">Conference Rooms</h3>
+<h3 class="home_ConferenceRMtitle">Conference Rooms</h3>
 </div>
 
 <!-- <div class="home_nav_container">
@@ -14,19 +14,20 @@
     <div class="component_dropdown" id="dropdown_01">
         <div class="dropdown_container">
             <div class="dropdown_text_container" id="go_home">
-                <div class="dropdown_text" @click="nav_off"><router-link to="/" style="text-decoration: none" >home</router-link></div>
+                <div class="dropdown_text">home</div>
             </div>
-            <div @click="display_func" class="dropdown_text_container" id="display_mode" >
+            <div class="dropdown_text_container" id="display_mode">
                 <div class="dropdown_text">display mode</div>
             </div>
             <div class="dropdown_text_container" id="log_out">
-                <a href="" style="text-decoration: none"><div class="dropdown_text">log out</div></a>
+                <div class="dropdown_text">log out</div>
             </div>
-
+            <div class="dropdown_text_container" id="update_details">
+            <div class="dropdown_text">update details</div>
+            </div>
         </div>
     </div>
 </div>
-
 
 </template>
 
@@ -37,16 +38,11 @@
     align-items: center;
     width: 100vw;
     padding: 0px 10px;
-    position: fixed;
-    top: 0;
-    z-index: 3;
-    background-color: #111127;
 }
 
 .home_logo {
     color: #63B798;
-    width: 50px;
-    height: 50px;
+    width: 15%;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -113,7 +109,7 @@
     font-family: 'Inter';
     color: white;
     font-size: 18px;
-
+    font-weight: lighter;
 }
 </style>
 
@@ -136,43 +132,10 @@ export default {
                   _07.style.display = "none";
                              }
 
-  },
-  nav_off() {
-
-      document.getElementById('dropdown_01').style.display = 'none';
-  },
-
-  display_func () {
-      let postbox = document.getElementById('postbox');
-      let post = document.getElementById('post');
-      let headnav = document.getElementById('headnav');
-
-            if 
-                (post.style.display === "none") 
-                        { post.style.display = "flex";} 
-            else 
-                        { post.style.display = "none"; }
-
-            if 
-                (headnav.innerHTML === "Conference Rooms") 
-                    { headnav.innerHTML = "Display Mode"; }  
-            else 
-                    { headnav.innerHTML= "Conference Rooms";}
-
-
-            if 
-                (postbox.style.top === "80px") 
-                { postbox.style.top = "245px";} 
-
-                else 
-                { postbox.style.top = "80px";}
-
-  },
-
   }
 
 
 }
-
+}
 
 </script>
