@@ -1,6 +1,6 @@
 
 <template>
-<div class="postBack">
+<div class="postBack" id="post">
 <div class="writeBox">
   <div class="postUser">
 
@@ -49,7 +49,7 @@ background-color: #111127;
 .writeBox {
   position: fixed;
   background-color: #111127;
-  top: 90px;
+  top: 70px;
   left:0px;
   width: 94vw;
   margin: 3vw;
