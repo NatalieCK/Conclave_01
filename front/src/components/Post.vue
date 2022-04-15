@@ -19,7 +19,7 @@
       </div>
     </div>
 
-<div @click="delEmit" class="deletePost">
+<div @click="delPostEmit" class="deletePost">
 <h5>x</h5>
 </div>
     </div>
@@ -30,9 +30,9 @@
 
 <div class="bottomRow">
 
-    <!-- <div class="iconNumbers"> -->
+  
 
-      <div @click="updateEmit" class="likeNumbers">
+      <div @click="likePostEmit" class="likeNumbers">
         <img class="likeIcon" src="ICONS/thumb_up_white_24dp.svg" alt="likes" />
         <h4 v-if="postProp.P_likes" >{{ postProp.P_likes }}</h4>
         <!-- <h4 v-if="postProp.P_likes > 1">s</h4> -->
@@ -57,8 +57,19 @@
 
     </div>
 <div :class="{hidden: ReplyBoxOff}">
-<PostReply @cancelTrigger="cancelPostReply" />
+<PostReply @cancelTrigger="cancelPostReply" :postDataProp="postProp" />
 </div>
+
+<div v-if="postProp.P_postComments[0]" >
+<Comment 
+v-for="commentID in postProp.P_postComments"
+:key="commentID"
+:commentID="commentID"
+@delCommentEmit="delComment"
+@updCommentEmit="updateComment"
+/>
+</div>
+
   </div>
 </template>
 
@@ -201,14 +212,15 @@ h5 {
 export default {
 data() {
     return { 
+      commentsData: [],
       ReplyBoxOff: true,
     };
   },
   methods: {
-    delEmit() {
+    delPostEmit() {
       this.$emit("delPostEmit", this.postProp._id);
     },
-    updateEmit() {
+    likePostEmit() {
       this.postProp.P_likes++
       this.$emit("updPostEmit", this.postProp);
     },
@@ -217,14 +229,55 @@ this.ReplyBoxOff=false;
     },
     cancelPostReply(){
 this.ReplyBoxOff=true;
+    },
+    async fetchAPI() {
+      const response = await fetch("http://localhost:4000/comments/");
+      const fetchedData = await response.json();
+      this.commentsData = fetchedData;
+    },
+    async delComment(commentID) {
+      const fetchURL = "http://localhost:4000/comments/delete/" + commentID;
+      const response = await fetch(fetchURL, { method: "DELETE" });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+      const arrayValue=this.postProp.P_postComments.indexOf(commentID);
+      console.log(arrayValue);
+      const postPropData=this.postProp;
+      console.log(postPropData.P_postComments);
+      postPropData.P_postComments.splice(arrayValue,1);
+      console.log(postPropData.P_postComments);
+      this.updatePost(postPropData);
+    },
+    async updateComment(commentData) {
+      const fetchURL = "http://localhost:4000/comments/update/" + commentData._id;
+      const response = await fetch(fetchURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(commentData),
+      });
+      const fetchedData = await response.json();
+      this.fetchAPI();
+    },
+    async updatePost(postData) {
+      const fetchURL = "http://localhost:4000/posts/update/" + postData._id;
+      const response = await fetch(fetchURL, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postData),
+      });
+      const fetchedData = await response.json();
+      this.fetchAPI();
     }
+  },
+  created() {
+    this.fetchAPI();
   },
   emits: ["delPostEmit", "updPostEmit"],
 };
 </script>
 
 <script setup>
-import P_Avatar from "./P_Avatar.vue";
+import Comment from "./Comment.vue";
 import PostReply from "./PostReply.vue"
 
 defineProps({

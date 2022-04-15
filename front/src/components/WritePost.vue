@@ -195,7 +195,6 @@ async getUser() {
     },
     fillPostData(){
       if(this.postData.P_content==""){
-        console.log("no content");
         return;
       };
       this.postData.P_userID=this.localUserObj._id;
@@ -204,7 +203,6 @@ async getUser() {
       this.postData.P_initial=this.localUserObj.U_initial;
       this.postData.P_status=this.localUserObj.U_status;
       this.addPost(this.postData);
-      console.log(this.postData)
     }
   },
   created() {
