@@ -101,7 +101,7 @@ select[name="status"]{
   margin: 10px 0px;
   font-weight: 600;
   font-size: 16px;
-  color: #111127;
+  color: #111127 !important;
 }
 </style>
 <script>
