@@ -30,7 +30,7 @@
 
 <div class="bottomRow">
 
-    <!-- <div class="iconNumbers"> -->
+  
 
       <div @click="likePostEmit" class="likeNumbers">
         <img class="likeIcon" src="ICONS/thumb_up_white_24dp.svg" alt="likes" />

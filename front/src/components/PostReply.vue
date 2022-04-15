@@ -1,6 +1,6 @@
 
 <template>
-  <!-- <div class="postBack"> -->
+  
   <div class="writeBox">
     <div class="postUser">
       <div v-if="userData.U_status == 'Speaker'" class="avatar_speaker">
@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-  <!-- </div> -->
+  
 </template>
 
 
@@ -185,10 +185,7 @@ export default {
         body: JSON.stringify(inputCommentData),
       });
       const fetchedData = await response.json();
-      console.log(fetchedData._id);
       this.postDataProp.P_postComments.push(fetchedData._id);
-      console.log(this.postDataProp.P_postComments[0]);
-    //   this.$emit("CommentListTrigger");
       this.commentData = {
         C_postID: "",
         C_userID: "",
@@ -210,8 +207,6 @@ export default {
         body: JSON.stringify(postData),
       });
       const fetchedData = await response.json();
-      
-    
   },
     fillCommentData() {
       if (this.commentData.C_content == "") {
@@ -225,11 +220,6 @@ export default {
       this.commentData.C_initial = this.userData.U_initial;
       this.commentData.C_status = this.userData.U_status;
       this.addComment(this.commentData);
-
-      // this.postDataProp.P_postComments.push(this.commentData._id);
-      // console.log(this.postDataProp.P_postComments[0]);
-    
-
     },
     cancelComment(){
         this.commentData.C_content="";

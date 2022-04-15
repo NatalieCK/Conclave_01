@@ -200,7 +200,6 @@ export default {
     },
     fillPostData(){
       if(this.postData.P_content==""){
-        console.log("no content");
         return;
       };
       this.postData.P_userID=this.userData._id;
@@ -209,7 +208,6 @@ export default {
       this.postData.P_initial=this.userData.U_initial;
       this.postData.P_status=this.userData.U_status;
       this.addPost(this.postData);
-      console.log(this.postData)
     }
   },
   created() {
