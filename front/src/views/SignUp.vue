@@ -21,11 +21,11 @@ import ReturnID from "./ReturnID.vue";
         v-model="inputUserData.U_lname"
         placeholder="Last Name"
       />
-      <input
+      <!-- <input
         type="text"
         v-model="inputUserData.U_initial"
         placeholder="Initial"
-      />
+      /> -->
       <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
       <input
         type="text"
@@ -44,7 +44,7 @@ import ReturnID from "./ReturnID.vue";
     <div :class="{ idhidden: IdDisplay }">
       <p>your user id is as follows:</p>
       <p>
-        {{ storedUserObj._id }}
+        {{ localUserObj._id }}
       </p>
       <p>click <router-link to="/login">HERE</router-link> to login</p>
     </div>
@@ -120,6 +120,7 @@ export default {
   components: { LogIn },
   data() {
     return {
+      localUserObj:{},
       IdDisplay: true,
       usersData: [],
       inputUserData: {
@@ -140,6 +141,7 @@ export default {
       this.usersData = fetchedData;
     },
     async addUser() {
+      this.inputUserData.U_initial= this.inputUserData.U_fname[0]+this.inputUserData.U_lname[0];
       const response = await fetch("http://localhost:4000/users/adduser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -174,6 +176,7 @@ created() {
 
   let temp = localStorage.getItem('storedUserObj');
        this.storedUserObj = JSON.parse(temp);
+      this.localUserObj = this.storedUserObj;
   },
 
    // Below is the method we would use for provide/ inject (currently undergoing updates, not reliable)
