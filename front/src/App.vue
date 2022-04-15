@@ -7,7 +7,7 @@
       <Welcome @closemodal="modal=true" />
     </div>
 
-    <router-view @userDetailsCreated="myDetails"></router-view>
+    <router-view @userDetailsCreated="myDetails" v-if="modal"></router-view>
 
 </div>
 

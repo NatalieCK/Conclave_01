@@ -211,6 +211,7 @@ async getUser() {
  
      let temp = localStorage.getItem('storedUserObj');
        this.storedUserObj = JSON.parse(temp);
+       console.log(this.storedUserObj);
        this.getUser();
 
   },
