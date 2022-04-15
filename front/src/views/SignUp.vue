@@ -18,11 +18,6 @@ import ReturnID from "./ReturnID.vue";
         v-model="inputUserData.U_lname"
         placeholder="Last Name"
       />
-      <!-- <input
-        type="text"
-        v-model="inputUserData.U_initial"
-        placeholder="Initial"
-      /> -->
       <input type="text" v-model="inputUserData.U_email" placeholder="Email" />
       <input
         type="text"
@@ -36,11 +31,13 @@ import ReturnID from "./ReturnID.vue";
       <span class="signupbtn" @click="addUser">Sign Up</span>
     </div>
     <div :class="{ idhidden: IdDisplay }">
-      <p>your user id is as follows:</p>
+      <div class="userid_display">
+      <p>Your USER ID is as follows:</p>
       <p>
         {{ localUserObj._id }}
       </p>
-      <p>click <router-link to="/login">HERE</router-link> to login</p>
+      <p>Click <router-link to="/login">HERE</router-link> to login.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +45,11 @@ import ReturnID from "./ReturnID.vue";
 *{
   font-family: 'Inter';
   color: white!important;
+}
+
+.userid_display {
+text-align: center;
+margin-top: 20px;
 }
 .idhidden {
   display: none;
