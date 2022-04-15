@@ -7,12 +7,13 @@ import SignInHeader from "../components/SignInHeader.vue";
 
 <div class="login_input">
   <h1 class="login_title">Login to Conclave</h1>
-  <input type="text" name="userid"  placeholder="User ID" :value="localUserObj._id" />
-  <input type="text" name="userpass"  placeholder="Password" :value="localUserObj.U_password" />
+  <input type="text" name="userid"  placeholder="User ID" v-model="localUserObj._id" />
+  <input type="text" name="userpass"  placeholder="Password" v-model="localUserObj.U_password" />
+  <p v-if="wrongPassword" class="red">* Wrong Password</p>
 <div class="no_pass">
   <p>Don't have an account? <router-link to="/signup">Sign Up</router-link> </p>
 </div>
-  <div class="login_btn"><router-link to="/">LOGIN</router-link></div>
+  <div class="login_btn" @click="loginFunc">LOGIN</div>
 </div>
 
 
@@ -20,6 +21,10 @@ import SignInHeader from "../components/SignInHeader.vue";
 </template>
 
 <style>
+.red{
+  color: red !important;
+  font-weight: bold;
+}
 .login_title{
   align-self: flex-start;
   font-weight: 700;
@@ -60,21 +65,34 @@ input[type=text]{
 export default {
   data() {
     return {
-        localUserObj:{}
+        wrongPassword:false,
+        localUserObj:{
+          _id:'',
+          password:''
+        }
     };
   },
   methods: {
-    async getUser() {
-      const response = await fetch("http://localhost:4000/users/get/" + this.storedUserObj._id);
+    async loginFunc() {
+      const response = await fetch("http://localhost:4000/users/get/" + this.localUserObj._id);
       const fetchedData = await response.json();
-      this.localUserObj = fetchedData;
+
+      if(fetchedData.U_password == this.localUserObj.U_password)
+        {
+          localStorage.setItem('storedUserObj', JSON.stringify(fetchedData));
+          this.$router.push('/');
+        }
+      else
+        this.wrongPassword = true;
     },
   },
     created(){
      
       let temp = localStorage.getItem('storedUserObj');
-       this.storedUserObj = JSON.parse(temp);
-      this.getUser();
+      this.storedUserObj = JSON.parse(temp);
+
+      if(this.storedUserObj)
+        this.localUserObj = this.storedUserObj;
 
     },
   
