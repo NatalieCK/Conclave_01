@@ -1,5 +1,5 @@
 <template>
-  <div class="postBox">
+  <div class="postBox" id="postbox">
 
     <div class="topRow">
 
@@ -65,7 +65,7 @@
 <style scoped>
 .postBox {
   position: relative;
-  top: 175px;
+  top: 245px;
   margin: 3vw;
   border: solid 5px #63b798;
   border-radius: 3px;
