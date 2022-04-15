@@ -65,3 +65,21 @@ Intention - wait for Tom to complete key work before progressing.
 
 2022-04-14 Documentation day. Intention - touch up my components and there relationship to the total app tomorrow once Tom and Nat have done the bulk of their work and they commence on documentation. 
 
+
+*JOY'S*
+5/4 & 6/4 - Worked on learning Vue and colaborated with the group in deciding the router finalisations. Created all the folders and components we intended to use in the future as a team. Project planning.
+
+7/4 - We as a team came together to refamiliarise ourselves with github and worked on tryng to fix issues during class time. We tried on creating group projects on different computers, we were able to later resolve this and the end of the day.
+
+8/4 - I was away during this day but I was able to get all the styling assets into a folder/file for the others to use for extra hours work.
+
+11/4 - We had a collaborative group meeting following along and trouble shooting Tom's/Nats router code. Also having issues with Git ignore/ nodes modules folders not creating. Tidying up the file formation and folders. Fixing issues with the others not being able to use the logos and fixing my computer terminal troubles.
+
+12/4 - Began working on the Login/ SignUp/ Welcome vue pages. I began styling with welcome pages and helped trouble shoot the welome modal. Working closely with Natalie while she worked on the Injecting methods, I followed up her code with all the styling elements. Lots of team calling and helping in troubleshoot
+
+13/4 - Helped in checking all pages were aligning, I was able to at the end of the day after the modals were fixed edit style elements. Editing components which needed fixing, eg Forms input dropdowns.
+
+14/4 - Created an about page modal and having that functional within the login pages. Styling that also. Restyled the navigation.
+
+15/4 - Worked on expand view, facing issues with trying to shunt down text this was later resolved with tutor help and Nat. Focused mainly on documentation and cleaning up code/components.
+

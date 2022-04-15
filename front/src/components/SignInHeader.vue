@@ -1,11 +1,11 @@
 <template>
-<div class="header_flex">
-<img class="logo" src="../assets/LOGO(1).png" alt="Conclave Logo">
-<div class="center_container">
-<h3 class="ConferenceRMtitle">Conference Rooms</h3>
-</div>
-<img @click="about=false" class="about_button" src="../../ICONS/help_outline_white_24dp.svg" alt="Conclave About Button">
-</div>
+    <div class="header_flex">
+        <img class="logo" src="../assets/LOGO(1).png" alt="Conclave Logo">
+    <div class="center_container">
+        <h3 class="ConferenceRMtitle">Conference Rooms</h3>
+    </div>
+    <img @click="about=false" class="about_button" src="../../ICONS/help_outline_white_24dp.svg" alt="Conclave About Button">
+    </div>
 
 <div>
     <div :class="{ about_hidden: about}">
@@ -62,7 +62,7 @@
 
 </style>
 <script setup>
-import AboutConclave from "../components/AboutConclave.vue";
+    import AboutConclave from "../components/AboutConclave.vue";
 </script>
 <script> 
 export default {

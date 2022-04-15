@@ -15,9 +15,6 @@ import SignInHeader from "../components/SignInHeader.vue";
 </div>
   <div class="login_btn" @click="loginFunc">LOGIN</div>
 </div>
-
-
-
 </template>
 
 <style>
@@ -95,6 +92,5 @@ export default {
         this.localUserObj = this.storedUserObj;
 
     },
-  
 };
 </script>
